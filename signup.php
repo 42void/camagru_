@@ -35,7 +35,7 @@ if(isset($_POST['btn-signup']))
   exit;
  }
  if( !preg_match("#[A-Z]+#", $upass) ){
-  $error .= "Password must include at least one CAPS! ";
+  $error .= "Password must include at least one capital letter! ";
   header("Location: signup.php?passError=$error");
   exit;
  }
@@ -115,14 +115,14 @@ if(isset($_POST['btn-signup']))
       </div>
                <?php
     }
-
-
     ?>
+
       <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Sign Up</h2><hr />
         <input class="input" type="text"  placeholder="Username" name="txtuname" required />
         <input class="input" type="email"  placeholder="Email address" name="txtemail" required />
         <input class="input" type="password" placeholder="Password" name="txtpass" required />
+      <div>Your password must be between 6 and 20 characters long, and include at least 1 number, 1 symbol and 1 capital letter</div>
       <hr />
       <div class="buttonsAlign">
         <div>

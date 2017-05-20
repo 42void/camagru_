@@ -122,7 +122,7 @@ class USER{
     exit;
    }
    if( !preg_match("#[A-Z]+#", $upass) ){
-  	$error .= "Password must include at least one CAPS! ";
+  	$error .= "Password must include at least one capital letter! ";
     header("Location: index.php?passError=$error");
     exit;
    }

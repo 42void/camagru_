@@ -49,7 +49,7 @@ if(isset($_GET['id']) && isset($_GET['code'])){
      else if( !preg_match("#[A-Z]+#", $pass) ){
      $msg = "<div class='alert alert-block'>
        <button class='close' data-dismiss='alert'>&times;</button>
-       <strong>Sorry!</strong>  Password must include at least one CAPS!
+       <strong>Sorry!</strong>  Password must include at least one capital letter!
        </div>";
      }
      else if( !preg_match("#\W+#", $pass) ){
