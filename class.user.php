@@ -102,7 +102,7 @@ class USER{
    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
    $result = $stmt->fetchAll();
    if( strlen($upass) < 6 ){
-	  $error .= "Yous password must be at least 6 characters long! ";
+	  $error .= "Your password must be at least 6 characters long! ";
     header("Location: index.php?passError=$error");
     exit;
    }
