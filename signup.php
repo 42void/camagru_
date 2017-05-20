@@ -14,6 +14,41 @@ if(isset($_POST['btn-signup']))
  $uname = trim($_POST['txtuname']);
  $email = trim($_POST['txtemail']);
  $upass = trim($_POST['txtpass']);
+ if( strlen($upass) < 6 ){
+  $error .= "Your password must be at least 6 characters long! ";
+  header("Location: signup.php?passError=$error");
+  exit;
+ }
+ if( strlen($upass) > 20 ){
+  $error .= "Password too long! Yous password must be less than 20 characters long!  ";
+  header("Location: signup.php?passError=$error");
+  exit;
+ }
+ if( !preg_match("#[0-9]+#", $upass) ){
+  $error .= "Password must include at least one number! ";
+  header("Location: signup.php?passError=$error");
+  exit;
+ }
+ if( !preg_match("#[a-z]+#", $upass) ){
+  $error .= "Password must include at least one letter! ";
+  header("Location: signup.php?passError=$error");
+  exit;
+ }
+ if( !preg_match("#[A-Z]+#", $upass) ){
+  $error .= "Password must include at least one CAPS! ";
+  header("Location: signup.php?passError=$error");
+  exit;
+ }
+ if( !preg_match("#\W+#", $upass) ){
+  $error .= "Password must include at least one symbol!";
+  header("Location: signup.php?passError=$error");
+  exit;
+ }
+ if(strlen($upass) > 6 && preg_match("#[0-9]+#", $upass) && preg_match("#[a-z]+#", $upass)
+ && preg_match("#[A-Z]+#", $upass) && preg_match("#\W+#", $upass)){
+   unset($_GET['passError']);
+ }
+
  $code = hash('whirlpool', uniqid(rand()));
 
  $stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
@@ -70,7 +105,19 @@ if(isset($_POST['btn-signup']))
   </head>
   <body id="login">
     <div class="container">
-    <?php if(isset($msg)) echo $msg;  ?>
+    <?php if(isset($msg)) echo $msg;
+
+    if(isset($_GET['passError'])){
+      ?>
+               <div class='alert alert-success'>
+       <button class='close' data-dismiss='alert'>&times;</button>
+       <strong><?php echo $_GET['passError'] ?></strong>
+      </div>
+               <?php
+    }
+
+
+    ?>
       <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Sign Up</h2><hr />
         <input class="input" type="text"  placeholder="Username" name="txtuname" required />
