@@ -1,0 +1,288 @@
+body{
+  background-color: white;
+}
+
+header{
+  display:flex;
+  font-size: 1.5em;
+  font-family: sans-serif;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+nav>a{
+  color:white;
+  background-color: #337ab7;
+  padding:1em;
+  margin: 1em;
+  text-decoration: none;
+}
+
+label > input{
+  visibility: hidden;
+  position: absolute;
+}
+
+label > input + img{
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+label > input:checked + img{
+  border:2px solid #0038ff;
+}
+
+#main {
+  padding:0.5em;
+  float:left;
+  width:auto;
+  height: auto;
+  background-color: #e4e4e4;
+  margin-bottom: 1em;
+}
+
+#sidebar {
+  margin-left:2%;
+  margin-top:1em;
+  height: auto;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding:1em;
+  background-color: #f0f0f0;
+  margin-top:1em;
+  margin-bottom: 1em;
+}
+
+nav>a{
+    border-radius: 10px;
+}
+
+video{
+  width: 100%;
+  height: auto;
+}
+
+.tinyCats{
+  border:1px solid #f0f0f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tinyCat{
+  flex:1
+  margin:1em;
+}
+
+#mes{
+  font-family: sans-serif;
+  color: #5cc723;
+  font-weight: bold;
+}
+
+.vignettas{
+  max-width:60%;
+}
+
+.lilImg{
+  margin: 0 0 1em 1em;
+  height: 188px;
+  width: 250px;
+}
+
+canvas.canvas{
+  margin-left: 2.5em;
+  margin-bottom: 2em;
+}
+
+.takePictureButton{
+  color:#fff;
+  margin-top: 1
+  margin-right:0.5em;
+  background-color: #337ab7;
+  height: 30px;
+  width: 80px;
+  border-radius: 4px;
+  border:none ;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+footer {
+
+  padding: 0.002em;
+  padding-left: 1em;
+  clear:both;
+  background-color: #337ab7;
+  color:white;
+  font-family: sans-serif;
+  font-size: 0.8em;
+}
+
+.noPictureYet{
+  font-family:sans-serif;
+  color:#337ab7;
+  margin-left:30px;
+  font-size: 5em;
+  text-align: center;
+}
+
+
+.like{
+  margin:0.5em;
+}
+
+.likes_counter{
+  font-size: 1.1em;
+  font-family: sans-serif;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+}
+
+.like_icon:hover{
+  height: 32px;
+  width: 27px;
+}
+
+iframe{
+  display: flex;
+  width:300px;
+  height: 290px;
+}
+
+#home{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.delete{
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  color:white;
+  height: 2em;
+  font-family: sans-serif;
+}
+
+.no_delete{
+  display: inline-block;
+  height: 1.4em;
+}
+
+#upload_part{
+    visibility: hidden;
+    height: 0px;
+}
+
+#img_uploaded{
+  visibility: hidden;
+  height: 0px;
+}
+
+.writeComment{
+  display: block;
+  width: 225px;
+  padding: .5rem .75rem;
+  margin: 1em 0 1em 0;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  overflow:hidden;
+  resize: none;
+}
+
+.comment{
+  margin:.2em;
+  line-height: 150%;
+  color: #444;
+  background: #f5f5f5;
+  display: block;
+  padding: 10px 15px 10px 15px;
+  font-size: .9em;
+  display: block;
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+
+}
+
+.sendCommentBtn{
+  display: inline-block;
+  font-weight: 300;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .3rem .8rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+}
+
+.gallery_img_line{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.gallery_img{
+  background-color: #f0f0f0;
+  padding: 5px;
+  width: 250px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.like_icon{
+  margin-top: .2em;
+  margin-right: .2em;
+}
+
+.number_likes{
+  margin: .8em;
+}
+
+#ImageKeying{
+  z-index: 1;
+  top:1%;
+  left:1%;
+  position: absolute;
+  width:45%;
+  height:55%;
+}
+
+#divPos{
+  position: relative;
+}
+
+#videoElement{
+  z-index: 0;
+}

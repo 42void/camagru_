@@ -1,0 +1,100 @@
+<?php
+session_start();
+require_once 'class.user.php';
+
+$reg_user = new USER();
+
+if($reg_user->is_logged_in()!="")
+{
+  $reg_user->redirect('home.php');
+}
+
+if(isset($_POST['btn-signup']))
+{
+ $uname = trim($_POST['txtuname']);
+ $email = trim($_POST['txtemail']);
+ $upass = trim($_POST['txtpass']);
+ $code = hash('whirlpool', uniqid(rand()));
+
+ $stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
+ $stmt->bindparam(":email_id", $email);
+ $stmt->execute();
+ $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+ if($row){
+  $msg = "
+        <div class='alert alert-error'>
+    <button class='close' data-dismiss='alert'>&times;</button>
+     <strong>Sorry !</strong>  email already exists, please try another one
+     </div>
+     ";
+ }
+ else{
+  if($reg_user->register($uname,$email,$upass,$code)){
+   $id = $reg_user->lasdID();
+   $key = base64_encode($id);
+   $id = $key;
+
+   $message = "
+      Hello $uname,
+
+      Welcome to Camagru !
+      To complete your registration, please just click on following link :
+
+      http://localhost:8000/verify.php?id=$id&code=$code
+
+      Thanks :)";
+
+   $subject = "Confirm Registration";
+
+   $reg_user->send_mail($email,$message,$subject);
+   $msg = "
+     <div class='alert alert-success'>
+      <button class='close' data-dismiss='alert'>&times;</button>
+      <strong>Success!</strong>  We've sent an email to $email.<br/>
+                    Please click on the confirmation link in the email to create your account.
+       </div>
+     ";
+  }
+  else{
+   echo "Sorry , query could no execute...\n";
+  }
+ }
+}
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Signup | Coding Cage</title>
+  </head>
+  <body id="login">
+    <div class="container">
+    <?php if(isset($msg)) echo $msg;  ?>
+      <form class="form-signin" method="post">
+        <h2 class="form-signin-heading">Sign Up</h2><hr />
+        <input class="input" type="text"  placeholder="Username" name="txtuname" required />
+        <input class="input" type="email"  placeholder="Email address" name="txtemail" required />
+        <input class="input" type="password" placeholder="Password" name="txtpass" required />
+      <hr />
+      <div class="buttonsAlign">
+        <div>
+          <button type="submit" class="signUpButton" name="btn-signup"><span class="loginButtonText">Sign Up</span></button>
+        </div>
+        <div class="alreadyAccount">
+          <p>
+            Already have an account?
+          </p>
+        </div>
+        <div>
+          <a href="index.php" class="signUpButton">
+            <span class="signUpButtonText">
+              Log in
+            <span/>
+          </a>
+        </div>
+      </div>
+      </form>
+    </div>
+  </body>
+</html>
