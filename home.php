@@ -79,7 +79,7 @@
 
               </div>
               <hr />
-              <button id="b" disabled=true class="takePictureButton" type="button">Take picture</button>
+              <button id="b" class="takePictureButton" type="button">Take picture</button>
 
           </section>
 

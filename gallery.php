@@ -98,7 +98,7 @@
                     echo'
                     <div class="likes_counter">
                       <p class="number_likes">'.$numberLikes.'</p>
-                      <img class=like_icon onclick="onClickFunction(event);"  id='.$id.' width=25 height=30 src="./icons/like_icon.png">
+                      <img class=like_icon onclick="onClickFunction(event);"  id='.$id.' width=25 height=30 src="./stackable_pics/thumbUp.png">
                     </div>
                     <div class="sent_comment" id="sentComment_'.$id.'">
 
