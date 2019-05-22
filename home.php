@@ -88,7 +88,7 @@
           </aside>
 
     <footer>
-      <p class="mentions">© 2016 Copyright AnneLoutre</a></p>
+      <p class="mentions">© 2019 Copyright AnneLoutre</a></p>
     </footer>
     <script>
         var tmp = 0;

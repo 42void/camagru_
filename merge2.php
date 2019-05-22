@@ -16,7 +16,6 @@ imagealphablending($src, false);
 imagesavealpha($src, true);
 
 $src_width = imagesx($src);
-// echo "<script>console.log('src_width " .$src_width. "' );</script>";
 $src_height = imagesy($src);
 $dest_width = imagesx($dest);
 $dest_height = imagesy($dest);

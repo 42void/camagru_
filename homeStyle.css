@@ -44,7 +44,7 @@ label > input:checked + img{
 #sidebar {
   margin-left:2%;
   margin-top:1em;
-  height: auto;
+
 }
 
 nav{
@@ -101,7 +101,7 @@ canvas.canvas{
 
 .takePictureButton{
   color:#fff;
-  margin-top: 1
+  margin-top: 1;
   margin-right:0.5em;
   background-color: #337ab7;
   height: 30px;
