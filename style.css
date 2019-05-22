@@ -16,6 +16,10 @@
   text-decoration: none;
 }
 
+.container{
+  width:500px
+}
+
 .loginButtonText{
   color: #FFF;
   font-size: 1.2em;

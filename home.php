@@ -79,7 +79,7 @@
 
               </div>
               <hr />
-              <button id="b" disabled=true class="takePictureButton" type="button" >Take picture</button>
+              <button id="b" disabled=true class="takePictureButton" type="button">Take picture</button>
 
           </section>
 
@@ -140,7 +140,9 @@
         function handleVideo(stream) {
 
           var cat;
-          video.src = window.URL.createObjectURL(stream);
+          // video.src = window.URL.createObjectURL(stream);
+          video.srcObject=stream;
+
           button.onclick = () => {
             var canvas = document.createElement('canvas');
             canvas.className = "canvas"
@@ -182,9 +184,8 @@
             ajx.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             ajx.send(creds);
           }
-
-
         }
+        
         function videoError(e) {
           tmp = 1;
 

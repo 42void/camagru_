@@ -48,11 +48,11 @@ label > input:checked + img{
 }
 
 nav{
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   justify-content: center;
   padding:1em;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   margin-top:1em;
   margin-bottom: 1em;
 }
@@ -74,7 +74,7 @@ video{
 }
 
 .tinyCat{
-  flex:1
+  flex:1;
   margin:1em;
 }
 
@@ -285,4 +285,11 @@ iframe{
 
 #videoElement{
   z-index: 0;
+}
+
+.close{
+  display:none;
+}
+.accountActivatedText{
+  text-align: center
 }
