@@ -17,11 +17,6 @@ if (isset($_POST['btn-signup'])) {
     header("Location: signup.php?passError=$error");
     exit;
   }
-  if (strlen($upass) > 20) {
-    $error .= "Password too long! Yous password must be less than 20 characters long!  ";
-    header("Location: signup.php?passError=$error");
-    exit;
-  }
   if (!preg_match("#[0-9]+#", $upass)) {
     $error .= "Password must include at least one number! ";
     header("Location: signup.php?passError=$error");
@@ -66,8 +61,8 @@ if (isset($_POST['btn-signup'])) {
       $id = $reg_user->lasdID();
       $key = base64_encode($id);
       $id = $key;
-      echo "<script>console.log('key " .$key. "' );</script>";
-      echo "<script>console.log('code " .$code. "' );</script>";
+      echo "<script>console.log('key " . $key . "' );</script>";
+      echo "<script>console.log('code " . $code . "' );</script>";
 
       $message = "
       Hello $uname,
@@ -75,11 +70,11 @@ if (isset($_POST['btn-signup'])) {
       Welcome to Camagru !
       To complete your registration, please just click on following link :
 
-      http://localhost:8000/verify.php?id=$id&code=$code
+      http://localhost:8080/verify.php?id=$id&code=$code
 
       Thanks :)";
       $subject = "Confirm Registration";
-   
+
       $reg_user->send_mail($email, $message, $subject);
       $msg = "
       <div class='alert alert-success'>
@@ -98,7 +93,7 @@ if (isset($_POST['btn-signup'])) {
 <html>
 
 <head>
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="index.css" type="text/css">
   <title>Signup | Coding Cage</title>
 </head>
 
@@ -118,29 +113,27 @@ if (isset($_POST['btn-signup'])) {
   }
   ?>
 
-    <form class="form-signin" method="post">
-      <h2 class="form-signin-heading">Sign Up</h2>
-      <hr />
+    <form class="form" method="post">
+      <h1>Sign up</h1>
       <input class="input" type="text" placeholder="Username" name="txtuname" required />
       <input class="input" type="email" placeholder="Email address" name="txtemail" required />
       <input class="input" type="password" placeholder="Password" name="txtpass" required />
-      <div>Your password must be between 6 and 20 characters long, and include at least 1 number, 1 symbol and 1 capital letter</div>
-      <hr />
-      <div class="buttonsAlign">
-        <div>
-          <button type="submit" class="signUpButton" name="btn-signup"><span class="loginButtonText">Sign Up</span></button>
+      Password must be at least be 6 characters long, with 1 number, 1 symbol and 1 capital letter
+      <div>
+        <div class="signup-btn-container">
+          <button type="submit" class="btn" name="btn-signup">
+            Sign Up
+          </button>
         </div>
         <div class="alreadyAccount">
           <p>
             Already have an account?
           </p>
-        </div>
-        <div>
-          <a href="index.php" class="signUpButton">
-            <span class="signUpButtonText">
-              Log in
-              <span />
-          </a>
+          <div>
+            <a href="index.php" class="btn">
+                Log in
+            </a>
+          </div>
         </div>
       </div>
     </form>

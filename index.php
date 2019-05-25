@@ -1,32 +1,32 @@
 <?php
-// phpinfo();
-session_start();
-require 'class.user.php';
+  // phpinfo();
+  session_start();
+  require 'class.user.php';
 
-$user_login = new USER();
+  $user_login = new USER();
 
-if ($user_login->is_logged_in() != "") {
-  $user_login->redirect('home.php');
-}
-
-if (isset($_POST['btn-login'])) {
-  $email = trim($_POST['txtemail']);
-  $upass = trim($_POST['txtupass']);
-
-  if ($user_login->login($email, $upass)) {
+  if ($user_login->is_logged_in() != "") {
     $user_login->redirect('home.php');
   }
-}
+
+  if (isset($_POST['btn-login'])) {
+    $email = trim($_POST['txtemail']);
+    $upass = trim($_POST['txtupass']);
+
+    if ($user_login->login($email, $upass)) {
+      $user_login->redirect('home.php');
+    }
+  }
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="index.css" type="text/css">
 </head>
 
-<body id="login">
+<body>
   <div class="container">
     <?php
     if (isset($_GET['inactive'])) {
@@ -39,7 +39,8 @@ if (isset($_POST['btn-login'])) {
     <?php
   }
   ?>
-    <form class="form-signin" method="post">
+    <h1 class='title'>Camagrü.</h1>
+    <form class="form" method="post">
       <?php
       if (isset($_GET['passError'])) {
         ?>
@@ -57,22 +58,16 @@ if (isset($_POST['btn-login'])) {
         </div>
       <?php
     }
-
     ?>
 
-      <h2 class="title">Camagrü.</h2>
-      <hr />
       <input type="email" class="input" placeholder="Email address" name="txtemail" required />
       <input type="password" class="input" placeholder="Password" name="txtupass" required />
-      <hr />
       <div class="buttonsContainer">
-        <button type="submit" class="loginButton" name="btn-login">
-          <span class="loginButtonText">Log in<span />
+        <button type="submit" class="btn" name="btn-login">
+          Log in
         </button>
-        <a href="signup.php" class="signUpButton">
-          <span class="signUpButtonText">
-            Sign Up
-            <span />
+        <a href="signup.php" class="btn">
+          Sign up
         </a>
       </div>
       <a class="forgotPswd" href="fpass.php">Lost your password ? </a>

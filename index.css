@@ -1,51 +1,87 @@
+body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.container{
+  width:80%;
+  margin: 0 auto;
+}
+
+.title{
+  font-size: 3em;
+  text-align: center;
+  margin: 3rem 0 5rem;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.input{
+  width:100%;
+  max-width: 500px;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  padding: 12px 20px 12px 20px;
+  font-size: 1em;
+}
+
 .buttonsContainer{
   flex-direction: row;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  margin-bottom:1em;
+  margin: 1rem 0;
 }
 
-.loginButton{
-  margin-right:0.5em;
+.btn{
+  margin:1rem;
   background-color: #337ab7;
-  height: 30px;
-  width: 80px;
+  min-height: 2rem;
+  width: 11rem;
   border-radius: 4px;
   border:none ;
   text-decoration: none;
-}
-
-.container{
-  width:500px
-}
-
-.loginButtonText{
-  color: #FFF;
-  font-size: 1.2em;
+  font-size: 0.9em;
   color:#fff;
-}
-
-.signUpButton{
-  margin-right:0.5em;
-  background-color: #337ab7;
-  height: 30px;
-  width: 80px;
-  border-radius: 4px;
-  border:none ;
-  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1em;
+}
+
+.forgotPswd{
+  margin:1rem;
+  text-decoration: none;
+  color: #337ab7;
+}
+
+.forgotPswd:hover{
+  color:#7d95d2;
+}
+
+.signup-btn-container{
+  display: flex;
+  justify-content: center;
 }
 
 .alreadyAccount{
-  margin-top: -0.5em;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin:1rem;
 }
 
+nav{
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+}
+/* 
 .generateNewPaswdButton{
   margin-right:0.5em;
   background-color: #337ab7;
@@ -58,58 +94,22 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;
-}
+} */
 
-.buttonsAlign{
-  display: flex;
-  flex-direction: row;
-}
 
-.signUpButtonText{
-  color:#fff;
-  font-size: 0.8em;
 
-}
 
-.title{
-  font-size: 3em;
-}
 
-.item {
+/* .item {
   background-color: red,
-}
+} */
 
-.input{
-  width: 100%;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-shadow: inset 0 1px 3px #ddd;
-  border-radius: 4px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  font-size: 1em;
-}
 
-.forgotPswd{
-  text-decoration: none;
-  color: #337ab7;
-}
-
-.forgotPswd:hover{
-  color:#7d95d2;
-}
-
-.logoutDisplay{
+/* .logoutDisplay{
   flex-direction: column;
-}
+} */
 
-body{
+/* body{
     font-family: sans-serif;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -129,4 +129,4 @@ body{
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-}
+} */
