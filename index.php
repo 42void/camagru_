@@ -24,6 +24,7 @@
 
 <head>
   <link rel="stylesheet" href="index.css" type="text/css">
+  <title>Camagru - Log in</title>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
     <?php
   }
   ?>
-    <h1 class='title'>Camagrü.</h1>
+    <h1 class='title'>Camagru</h1>
     <form class="form" method="post">
       <?php
       if (isset($_GET['passError'])) {

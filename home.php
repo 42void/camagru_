@@ -22,6 +22,7 @@ if (!$user_home->is_logged_in()) {
   <header>
     <h1 class="title">Welcome to Camagru</h1>
     <nav>
+      <a class='btn' href="account.php">Account</a>
       <a class='btn' href="gallery.php">Go to gallery</a>
       <a class='btn' href="logout.php">Logout</a>
     </nav>

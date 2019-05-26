@@ -92,7 +92,7 @@ if (isset($_POST['btn-signup'])) {
 
 <head>
   <link rel="stylesheet" href="index.css" type="text/css">
-  <title>Signup | Coding Cage</title>
+  <title>Camagru - Sign up</title>
 </head>
 
 <body id="login">

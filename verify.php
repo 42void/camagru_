@@ -50,7 +50,7 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
 <html>
 
 <head>
-  <title>Confirm Registrationnnnn</title>
+  <title>Registration verification</title>
   <link rel="stylesheet" href="index.css" type="text/css">
   <link rel="stylesheet" href="home.css" type="text/css">
 </head>
