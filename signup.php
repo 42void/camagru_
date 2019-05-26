@@ -53,8 +53,7 @@ if (isset($_POST['btn-signup'])) {
 
   if ($row) {
     $msg = "<div class='alert alert-error'>
-              <button class='close' data-dismiss='alert'>&times;</button>
-              <strong>Sorry !</strong>  email already exists, please try another one
+              You already have an account, please go to the login page
             </div>";
   } else {
     if ($reg_user->register($uname, $email, $upass, $code)) {
@@ -78,7 +77,6 @@ if (isset($_POST['btn-signup'])) {
       $reg_user->send_mail($email, $message, $subject);
       $msg = "
       <div class='alert alert-success'>
-        <button class='close' data-dismiss='alert'>&times;</button>
         <strong>Success!</strong>  We've sent an email to $email.<br/>
          Please click on the confirmation link in the email to create your account.
       </div>
@@ -106,7 +104,6 @@ if (isset($_POST['btn-signup'])) {
     if (isset($_GET['passError'])) {
       ?>
       <div class='alert alert-success'>
-        <button class='close' data-dismiss='alert'>&times;</button>
         <strong><?php echo $_GET['passError'] ?></strong>
       </div>
     <?php

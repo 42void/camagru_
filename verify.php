@@ -25,25 +25,22 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
       $stmt->execute();
 
       $msg = "
-               <div class='alert alert-success'>
-         <button class='close' data-dismiss='alert'>&times;</button>
-         <strong>WoW !</strong>  Your Account is now activated : <a href='index.php'>Login here</a>
-            </div>
+              <div class='alert alert-success'>
+                <strong>WoW !</strong>  Your Account is now activated : <a class='btn' href='index.php'>Login here</a>
+              </div>
             ";
     } else {
       $msg = "
               <div class='alert alert-error'>
-                <button class='close' data-dismiss='alert'>&times;</button>
-                <div class='accountActivatedText'>Your account is already activated : <a href='index.php'>Login here</a></div>
+                Your account is already activated : <a class='btn' href='index.php'>Login here</a>
               </div>
             ";
     }
   } else {
     $msg = "
-         <div class='alert alert-error'>
-      <button class='close' data-dismiss='alert'>&times;</button>
-      <strong>Sorry !</strong>  No Account Found : <a href='signup.php'>Signup here</a>
-      </div>
+          <div class='alert alert-error'>
+            <strong>Sorry !</strong>  No Account Found : <a class='btn' href='signup.php'>Signup here</a>
+          </div>
       ";
   }
 }
@@ -54,11 +51,11 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
 
 <head>
   <title>Confirm Registrationnnnn</title>
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="index.css" type="text/css">
   <link rel="stylesheet" href="home.css" type="text/css">
 </head>
 <nav>
-  <a href="logout.php">Logout</a>
+  <a class='btn' href="logout.php">Logout</a>
 </nav>
 
 <body class="logoutDisplay" id="login">

@@ -32,7 +32,7 @@
     if (isset($_GET['inactive'])) {
       ?>
       <div class='alert alert-error'>
-        <button class='close' data-dismiss='alert'>&times;</button>
+        <!-- <button class='close' data-dismiss='alert'>&times;</button> -->
         <strong>Sorry!</strong> This Account is not activated.<br />
         Please go to your inbox and activate it.
       </div>
@@ -45,7 +45,7 @@
       if (isset($_GET['passError'])) {
         ?>
         <div class='alert alert-success'>
-          <button class='close' data-dismiss='alert'>&times;</button>
+          <!-- <button class='close' data-dismiss='alert'>&times;</button> -->
           <strong><?php echo $_GET['passError'] ?></strong>
         </div>
       <?php
@@ -53,14 +53,14 @@
     if (isset($_GET['error'])) {
       ?>
         <div class='alert alert-success'>
-          <button class='close' data-dismiss='alert'>&times;</button>
+          <!-- <button class='close' data-dismiss='alert'>&times;</button> -->
           <strong>Wrong Details!</strong>
         </div>
       <?php
     }
     ?>
 
-      <input type="email" class="input" placeholder="Email address" name="txtemail" required />
+      <input type="email" class="input" placeholder="Email address" name="txtemail" autocomplete="on" required />
       <input type="password" class="input" placeholder="Password" name="txtupass" required />
       <div class="buttonsContainer">
         <button type="submit" class="btn" name="btn-login">
@@ -70,7 +70,7 @@
           Sign up
         </a>
       </div>
-      <a class="forgotPswd" href="fpass.php">Lost your password ? </a>
+      <a class="forgotPswd" href="fpass.php">Forgot your password ? </a>
     </form>
 
   </div>

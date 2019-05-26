@@ -9,18 +9,20 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css" type="text/css">
         <link rel="stylesheet" href="home.css" type="text/css">
+        <title>Gallery</title>
     </head>
 
     <body>
       <header>
-        <h1>Gallery</h1>
+        <h1 class='title'>Gallery</h1>
       </header>
       <?php if($_SESSION['userSession']){?>
 
       <nav>
-        <a href="home.php">Back to home</a>
-        <a href="logout.php">Logout</a>
+        <a class='btn' href="home.php">Back to home</a>
+        <a class='btn' href="logout.php">Logout</a>
       </nav>
 
       <?php } ?>
@@ -110,7 +112,7 @@
 
                     </div>
 
-                    <textarea class="writeComment" id="comment_'.$id.'" placeholder="Write Your Comment Here....."></textarea>
+                    <textarea class="writeComment" id="comment_'.$id.'" placeholder="Write your comment here....."></textarea>
                     <button class="sendCommentBtn" onclick="addComment(event)" id='.$id.' value="Post Comment">Send comment</button>
 
                     ';} echo'
@@ -122,7 +124,7 @@
          echo '</div>';
 
         if($numberOfPages > 0)
-          echo '<p align="center" style="clear:both;">Page : ';
+          echo '<p align="center" class="paginationContainer">Page : ';
         else {
           echo'<p class="noPictureYet" >
             No picture yet !

@@ -40,14 +40,12 @@
       $user->send_mail($email, $message, $subject);
 
       $msg = "<div>
-                <button>&times;</button>
                 We've sent an email to $email.
                 Please click on the password reset link in the email to generate new password.
               </div>";
     } else {
       $msg = "
         <div >
-          <button>&times;</button>
           <strong>Sorry!</strong> Email not found.
         </div>";
     }

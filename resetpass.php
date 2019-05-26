@@ -24,43 +24,36 @@ if(isset($_GET['id']) && isset($_GET['code'])){
 
      if( strlen($pass) < 6 ){
      $msg = "<div class='alert alert-block'>
-       <button class='close' data-dismiss='alert'>&times;</button>
        <strong>Sorry!</strong>  Yous password must be at least 6 characters long!
        </div>";
      }
      else if( strlen($pass) > 20 ){
      $msg = "<div class='alert alert-block'>
-       <button class='close' data-dismiss='alert'>&times;</button>
        <strong>Sorry!</strong>  Your password must be less than 20 characters long!
        </div>";
      }
      else if( !preg_match("#[0-9]+#", $pass) ){
      $msg = "<div class='alert alert-block'>
-       <button class='close' data-dismiss='alert'>&times;</button>
        <strong>Sorry!</strong>  Password must include at least one number!
        </div>";
      }
      else if( !preg_match("#[a-z]+#", $pass) ){
      $msg = "<div class='alert alert-block'>
-       <button class='close' data-dismiss='alert'>&times;</button>
        <strong>Sorry!</strong>  Password must include at least one letter!
        </div>";
      }
      else if( !preg_match("#[A-Z]+#", $pass) ){
      $msg = "<div class='alert alert-block'>
-       <button class='close' data-dismiss='alert'>&times;</button>
        <strong>Sorry!</strong>  Password must include at least one capital letter!
        </div>";
      }
      else if( !preg_match("#\W+#", $pass) ){
      $msg = "<div class='alert alert-block'>
-       <button class='close' data-dismiss='alert'>&times;</button>
        <strong>Sorry!</strong>  Password must include at least one symbol!
        </div>";
      }
      else if($cpass!==$pass){
       $msg = "<div class='alert alert-block'>
-        <button class='close' data-dismiss='alert'>&times;</button>
         <strong>Sorry!</strong>  Password Doesn't match.
         </div>";
      }
@@ -74,7 +67,6 @@ if(isset($_GET['id']) && isset($_GET['code'])){
 
 
       $msg = "<div class='alert alert-success'>
-        <button class='close' data-dismiss='alert'>&times;</button>
         Password Changed. You will be redirected in about 5 secs.
         </div>";
       header("refresh:5;index.php");
@@ -91,12 +83,12 @@ if(isset($_GET['id']) && isset($_GET['code'])){
 <html>
   <head>
     <title>Password Reset</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="index.css" type="text/css">
     <link rel="stylesheet" href="home.css" type="text/css">
   </head>
   <nav>
-    <a href="home.php">Back to home</a>
-    <a href="logout.php">Logout</a>
+    <a class='btn' href="home.php">Back to home</a>
+    <a class='btn' href="logout.php">Logout</a>
   </nav>
   <body class="logoutDisplay" id="login">
     <div>
