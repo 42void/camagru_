@@ -59,7 +59,7 @@
 
 <head>
   <title>Forgot Password</title>
-  <!-- <link rel="stylesheet" href="homeStyle.css" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="home.css" type="text/css"> -->
   <link rel="stylesheet" href="index.css" type="text/css">
 
 </head>
@@ -68,7 +68,7 @@
   <a class='btn' href="logout.php">Logout</a>
 </nav>
 
-<body class="logoutDisplay">
+<body>
 
   <div class="container">
 

@@ -3,6 +3,8 @@ body{
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  margin:0;
+  padding:0;
 }
 
 .container{
@@ -82,28 +84,6 @@ nav{
   justify-content:center;
 }
 /* 
-.generateNewPaswdButton{
-  margin-right:0.5em;
-  background-color: #337ab7;
-  height: 30px;
-  width: 180px;
-  border-radius: 4px;
-  border:none ;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1em;
-} */
-
-
-
-
-
-/* .item {
-  background-color: red,
-} */
-
 
 /* .logoutDisplay{
   flex-direction: column;

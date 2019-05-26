@@ -92,7 +92,7 @@ if(isset($_GET['id']) && isset($_GET['code'])){
   <head>
     <title>Password Reset</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="homeStyle.css" type="text/css">
+    <link rel="stylesheet" href="home.css" type="text/css">
   </head>
   <nav>
     <a href="home.php">Back to home</a>

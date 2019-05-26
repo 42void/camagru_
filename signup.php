@@ -67,7 +67,7 @@ if (isset($_POST['btn-signup'])) {
       $message = "
       Hello $uname,
 
-      Welcome to Camagru !
+      Welcome to Camagru!
       To complete your registration, please just click on following link :
 
       http://localhost:8080/verify.php?id=$id&code=$code

@@ -13,21 +13,22 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="HomeStyle.css" type="text/css">
+        <link rel="stylesheet" href="index.css" type="text/css">
+        <link rel="stylesheet" href="home.css" type="text/css">
+        <title>Camagru</title>
     </head>
 
     <body>
       <header>
-        <h1>Welcome to Camagru</h1>
+        <h1 class="title">Welcome to Camagru</h1>
+        <nav>
+          <a class='btn' href="gallery.php">Go to gallery</a>
+          <a class='btn' href="logout.php">Logout</a>
+        </nav>
       </header>
 
-          <nav>
-            <a href="gallery.php">Go to gallery</a>
-            <a href="logout.php">Logout</a>
-          </nav>
-
           <!-- CATS -->
-          <form name="myForm" class='tinyCats' method="post" >
+          <form name="myForm" class='catRow' method="post" >
             <label>
               <input type="radio" name="radio" id="cat1" value="cat1">
               <img src="./stackable_pics/cat1.png" class="vignettas" >
@@ -45,47 +46,50 @@
               <img src="./stackable_pics/cat4.png" class="vignettas">
             </label>
           </form>
-          <!-- FIN CATS -->
-          <p id="mes"></p>
-
-          <section id="main">
-              <div>
-
-                  <!-- IMG UPLOADED -->
-                  <div id="img_uploaded"></div>
-                  <div id="ret_img_uploaded"></div>
-
-                  <!-- VIDEO -->
-
-                  <div id="divPos">
-                    <video autoplay="true" id="videoElement" ></video>
-                    <img id="ImageKeying" />
-                  </div>
-
-                  <!-- UPLOAD -->
-                  <div id="upload_part">
-
-                    <div id="iframeContainer">
-                      <iframe name="fouloulou" id="home" ></iframe>
+          <!-- END CATS -->
+          
+          
+          <div class="mainPlusSide">
+            <section id="main">
+                
+                <div>
+  
+                    <!-- IMG UPLOADED -->
+                    <div id="img_uploaded"></div>
+                    <div id="ret_img_uploaded"></div>
+  
+                    <!-- VIDEO -->
+  
+                    <div id="divPos">
+                      <video autoplay="true" id="videoElement"></video>
+                      <img id="ImageKeying" />
                     </div>
-
-                    <form enctype="multipart/form-data" action="upload.php" method="post" target="fouloulou">
-                      <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-                      <label for="userfile">Upload a file (max. 1 Mo) :</label><br />
-                      <input name="userfile" id="userfile" type="file" />
-                      <input type="submit" value="OK" />
-                    </form>
-                  </div>
-
-              </div>
-              <hr />
-              <button id="b" class="takePictureButton" type="button">Take picture</button>
-
-          </section>
-
-          <aside id="sidebar">
-              <!-- <canvas></canvas> -->
-          </aside>
+  
+                    <!-- UPLOAD -->
+                    <!-- <div id="upload_part">
+  
+                      <div id="iframeContainer">
+                        <iframe name="fouloulou" id="home" ></iframe>
+                      </div>
+  
+                      <form enctype="multipart/form-data" action="upload.php" method="post" target="fouloulou">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                        <label for="userfile">Upload a file (max. 1 Mo) :</label><br />
+                        <input name="userfile" id="userfile" type="file" />
+                        <input type="submit" value="OK" />
+                      </form>
+                    </div> -->
+  
+                </div>
+                <button id="b" class="btn cameraBtn" type="button">Take picture</button>
+  
+            </section>
+  
+            <aside id="sidebar">
+                <!-- <canvas></canvas> -->
+            </aside>
+          </div>
+          <p id="mes"></p>
 
     <footer>
       <p class="mentions">© 2019 Copyright AnneLoutre</a></p>

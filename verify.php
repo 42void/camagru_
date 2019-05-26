@@ -55,7 +55,7 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
 <head>
   <title>Confirm Registrationnnnn</title>
   <link rel="stylesheet" href="style.css" type="text/css">
-  <link rel="stylesheet" href="homeStyle.css" type="text/css">
+  <link rel="stylesheet" href="home.css" type="text/css">
 </head>
 <nav>
   <a href="logout.php">Logout</a>
