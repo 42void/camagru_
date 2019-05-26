@@ -10,7 +10,7 @@ $reg_user = new USER();
 $cat = $_POST['cat'];
 
 $src = imagecreatefrompng("./stackable_pics/$cat.png");
-$dest= imagecreatefrompng("./uploads/gerard.png");
+$dest= imagecreatefrompng("./upload/gerard.png");
 
 imagealphablending($src, false);
 imagesavealpha($src, true);
