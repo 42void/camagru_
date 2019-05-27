@@ -15,7 +15,7 @@ class USER{
   return $stmt;
  }
 
- public function lasdID(){
+ public function lastID(){
   $stmt = $this->pdo->lastInsertId();
   return $stmt;
  }
@@ -102,36 +102,6 @@ class USER{
    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
    $result = $stmt->fetchAll();
    $error = "";
-   // if( strlen($upass) < 6 ){
-	//  $error .= "Your password must be at least 6 characters long! ";
-   //  header("Location: index.php?passError=$error");
-   //  exit;
-   // }
-   // if( strlen($upass) > 20 ){
-  	// $error .= "Password too long! Yous password must be less than 20 characters long!  ";
-   //  header("Location: index.php?passError=$error");
-   //  exit;
-   // }
-   // if( !preg_match("#[0-9]+#", $upass) ){
-  	// $error .= "Password must include at least one number! ";
-   //  header("Location: index.php?passError=$error");
-   //  exit;
-   // }
-   // if( !preg_match("#[a-z]+#", $upass) ){
-  	// $error .= "Password must include at least one letter! ";
-   //  header("Location: index.php?passError=$error");
-   //  exit;
-   // }
-   // if( !preg_match("#[A-Z]+#", $upass) ){
-  	// $error .= "Password must include at least one capital letter! ";
-   //  header("Location: index.php?passError=$error");
-   //  exit;
-   // }
-   // if( !preg_match("#\W+#", $upass) ){
-  	// $error .= "Password must include at least one symbol!";
-   //  header("Location: index.php?passError=$error");
-   //  exit;
-   // }
    if($userRow){
       if($userRow['userStatus']=="Y"){
          if($userRow['userPass']==hash('whirlpool',$upass)){
@@ -191,10 +161,3 @@ class USER{
       }
    }
 }
-// function debug_to_console( $data ) {
-//    $output = $data;
-//    if ( is_array( $output ) )
-//        $output = implode( ',', $output);
-
-//    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-// }

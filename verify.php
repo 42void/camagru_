@@ -10,9 +10,7 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
   $code = $_GET['code'];
   $statusY = "Y";
   $statusN = "N";
-  $stmt = $user->runQuery("SELECT * FROM tbl_users WHERE userID=:u_id AND tokenCode=:code LIMIT 1");
-
-  $stmt->bindparam(":u_id", $id);
+  $stmt = $user->runQuery("SELECT * FROM tbl_users WHERE tokenCode=:code LIMIT 1");
   $stmt->bindparam(":code", $code);
   $stmt->execute();
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -21,7 +19,7 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
     if ($row['userStatus'] == $statusN) {
       $stmt = $user->runQuery("UPDATE tbl_users SET userStatus=:status WHERE userID=:uID");
       $stmt->bindparam(":status", $statusY);
-      $stmt->bindparam(":uID", $id);
+      $stmt->bindparam(":uID", $row['userID']);
       $stmt->execute();
 
       $msg = "

@@ -43,19 +43,11 @@
     <h1 class='title'>Camagru</h1>
     <form class="form" method="post">
       <?php
-      if (isset($_GET['passError'])) {
-        ?>
-        <div class='alert alert-success'>
-          <!-- <button class='close' data-dismiss='alert'>&times;</button> -->
-          <strong><?php echo $_GET['passError'] ?></strong>
-        </div>
-      <?php
-    }
     if (isset($_GET['error'])) {
       ?>
         <div class='alert alert-success'>
           <!-- <button class='close' data-dismiss='alert'>&times;</button> -->
-          <strong>Wrong Details!</strong>
+          <strong>Incorrect email and/or password</strong>
         </div>
       <?php
     }
