@@ -101,7 +101,7 @@ if(isset($_GET['id']) && isset($_GET['code'])){
         if(isset($msg)){
           echo $msg;
         }
-  ?>
+        ?>
         <input class="input" type="password"  placeholder="New Password" name="pass" required />
         <input class="input" type="password"  placeholder="Confirm New Password" name="confirm-pass" required />
       <hr />
