@@ -4,9 +4,9 @@
   $user = new USER();
   $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 
-  if ($user->is_logged_in() != "") {
-    $user->redirect('home.php');
-  }
+  // if ($user->is_logged_in() != "") {
+  //   $user->redirect('home.php');
+  // }
 
   if (isset($_POST['btn-submit'])) {
     $email = $_POST['txtemail'];
@@ -71,7 +71,7 @@
   <div class="container">
 
     <form class="form" method="post">
-      <h1>Forgot Password?</h1>
+      <h1>Reset your password</h1>
 
       <?php
         if (isset($msg)) {
@@ -85,7 +85,7 @@
         }
       ?>
       <input type="email" class="input" placeholder="Email address" name="txtemail" required />
-      <button type="submit" class="btn" name="btn-submit">Generate new password</button>
+      <button type="submit" class="btn" name="btn-submit">Submit</button>
     </form>
 
   </div>
