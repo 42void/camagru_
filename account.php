@@ -1,19 +1,12 @@
 <?php
 session_start();
 require_once 'class.user.php';
-// echo "<script>console.log($reg_user);</script>";
-// print("Bonjour");
-// echo '<pre>';
-// print($_SESSION['userSession']);
-// echo '</pre>';
-// echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-
+$user = new USER();
 
 // if ($reg_user->is_logged_in() != "") {
 //   $reg_user->redirect('home.php');
 // }
-$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-$stmt = $pdo->prepare("SELECT userName, userEmail FROM tbl_users WHERE userID = :session");
+$stmt = $user->runQuery("SELECT userName, userEmail FROM tbl_users WHERE userID = :session");
 $stmt->bindparam(":session", $_SESSION['userSession']);
 $select = $stmt->execute();
 $row=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -23,7 +16,7 @@ $phemail=$row['userEmail'];
 if (isset($_POST['btn-update'])) {
   $uname = trim($_POST['txtuname']);
   $email = trim($_POST['txtemail']);
-  $stmt2 = $pdo->prepare("UPDATE tbl_users SET userName = :uname, userEmail = :email WHERE userID = :session");
+  $stmt2 = $user->runQuery("UPDATE tbl_users SET userName = :uname, userEmail = :email WHERE userID = :session");
   $stmt2->bindparam(":uname", $uname);
   $stmt2->bindparam(":email", $email);
   $stmt2->bindparam(":session", $_SESSION['userSession']);

@@ -1,7 +1,5 @@
 <?php
 
-require(__DIR__.'/config/database.php');
-
 class USER{
  private $pdo;
 
@@ -23,7 +21,7 @@ class USER{
  public function register($uname,$email,$upass,$code){
     try{
      $password = hash('whirlpool', $upass);
-     $stmt = $this->pdo->prepare("INSERT INTO tbl_users(userName,userEmail,userPass,tokenCode)
+     $stmt = $this->runQuery("INSERT INTO tbl_users(userName,userEmail,userPass,tokenCode)
                                                   VALUES(:user_name, :user_mail, :user_pass, :active_code)");
      $stmt->bindparam(":user_name",$uname);
      $stmt->bindparam(":user_mail",$email);
@@ -39,7 +37,7 @@ class USER{
 
  public function recordPicture($ret, $userID){
    try{
-     $stmt = $this->pdo->prepare("INSERT INTO pictures(images, userID) VALUES(:image_url, :user_id)");
+     $stmt = $this->runQuery("INSERT INTO pictures(images, userID) VALUES(:image_url, :user_id)");
      $stmt->bindparam(":image_url", $ret);
      $stmt->bindparam(":user_id", $userID);
      $stmt->execute();
@@ -51,13 +49,13 @@ class USER{
 
  public function recordLikes($pictureID, $userID){
    try{
-    $stmt = $this->pdo->prepare("SELECT * FROM likes WHERE pictureID = :picture_id AND userID = :user_id ");
+    $stmt = $this->runQuery("SELECT * FROM likes WHERE pictureID = :picture_id AND userID = :user_id ");
     $stmt->bindparam(":picture_id",$pictureID);
     $stmt->bindparam(":user_id",$userID);
     $stmt->execute();
     $row=$stmt->fetch(PDO::FETCH_ASSOC);
     if (!$row){
-        $stmt2 = $this->pdo->prepare("INSERT INTO likes(pictureID, userID) VALUES(:picture__id, :user__id)");
+        $stmt2 = $this->runQuery("INSERT INTO likes(pictureID, userID) VALUES(:picture__id, :user__id)");
         $stmt2->bindparam(":picture__id", $pictureID);
         $stmt2->bindparam(":user__id", $userID);
         $stmt2->execute();
@@ -70,7 +68,7 @@ class USER{
 
  public function recordComments($pictureID, $userID, $comment){
     try{
-        $stmt3 = $this->pdo->prepare("INSERT INTO comments(pictureID, userID, comment) VALUES(:picture_id, :user_id, :comment)");
+        $stmt3 = $this->runQuery("INSERT INTO comments(pictureID, userID, comment) VALUES(:picture_id, :user_id, :comment)");
         $stmt3->bindparam(":picture_id", $pictureID);
         $stmt3->bindparam(":user_id", $userID);
         $stmt3->bindparam(":comment", $comment);
@@ -83,7 +81,7 @@ class USER{
 
  public function delete($pictureID, $userID){
    try{
-       $stmt3 = $this->pdo->prepare("DELETE FROM pictures WHERE pictureID=:picture_id AND userID=:user_id");
+       $stmt3 = $this->runQuery("DELETE FROM pictures WHERE pictureID=:picture_id AND userID=:user_id");
        $stmt3->bindparam(":picture_id", $pictureID);
        $stmt3->bindparam(":user_id", $userID);
        $stmt3->execute();
@@ -95,8 +93,7 @@ class USER{
 
  public function login($email,$upass){
   try{
-   $stmt = $this->pdo->prepare("SELECT * FROM tbl_users WHERE userEmail=:email_id");
-  //  $stmt->execute(array(":email_id"=>$email));
+   $stmt = $this->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
    $stmt->bindparam(":email_id", $email);
    $stmt->execute();
    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);

@@ -1,11 +1,11 @@
 <?php
-session_start();
 require_once 'class.user.php';
+session_start();
 
-$reg_user = new USER();
+$user = new USER();
 
-if ($reg_user->is_logged_in() != "") {
-  $reg_user->redirect('home.php');
+if ($user->is_logged_in() != "") {
+  $user->redirect('home.php');
 }
 
 $success = "";
@@ -34,7 +34,7 @@ if (isset($_POST['btn-signup'])) {
   if ($error === '') {
     $code = hash('whirlpool', uniqid(rand()));
 
-    $stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email");
+    $stmt = $user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email");
     $stmt->bindparam(":email", $email);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -46,7 +46,7 @@ if (isset($_POST['btn-signup'])) {
         $error = "You already signed up, please check your emails to validate the sign up process";
       }
     } else {
-      if ($reg_user->register($uname, $email, $upass, $code)) {
+      if ($user->register($uname, $email, $upass, $code)) {
         echo "<script>console.log('code " . $code . "' );</script>";
         $message = "
       Hello $uname,
@@ -59,7 +59,7 @@ if (isset($_POST['btn-signup'])) {
       Thanks :)";
         $subject = "Confirm Registration";
 
-        $reg_user->send_mail($email, $message, $subject);
+        $user->send_mail($email, $message, $subject);
         $success = "<strong>Success!</strong>  We've sent an email to $email.<br/>
          Please click on the confirmation link in the email to create your account.";
       } else {

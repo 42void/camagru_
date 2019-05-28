@@ -1,11 +1,9 @@
 <?php
+require_once 'class.user.php';
 session_start();
 $userID = $_SESSION['userSession'];
 
-require_once './config/database.php';
-require_once 'class.user.php';
-
-$reg_user = new USER();
+$user = new USER();
 
 $cat = $_POST['cat'];
 
@@ -36,7 +34,7 @@ $ret = "./results/".uniqid().".png";
 imagepng($dest, $ret);
 echo $ret;
 
-$reg_user->recordPicture($ret, $userID);
+$user->recordPicture($ret, $userID);
 
 
 ?>

@@ -1,10 +1,10 @@
 <?php
-session_start();
 require_once 'class.user.php';
-$user_home = new USER();
+session_start();
+$user = new USER();
 
-if (!$user_home->is_logged_in()) {
-  $user_home->redirect('index.php');
+if (!$user->is_logged_in()) {
+  $user->redirect('index.php');
 }
 
 ?>
@@ -69,7 +69,8 @@ if (!$user_home->is_logged_in()) {
         <!-- UPLOAD -->
         <div id="upload_part">
 
-          <div id="iframeContainer">
+          <div id="divPos2">
+            <img id="ImageKeying2" />
             <iframe name="fouloulou" class="iframe_upload" id="home"></iframe>
             <form enctype="multipart/form-data" action="upload.php" method="post" target="fouloulou">
               <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
@@ -87,7 +88,6 @@ if (!$user_home->is_logged_in()) {
     </section>
 
     <aside id="sidebar">
-      <!-- <canvas></canvas> -->
     </aside>
   </div>
   <p id="mes"></p>
@@ -98,32 +98,41 @@ if (!$user_home->is_logged_in()) {
   <script>
     var tmp = 0;
     document.getElementById("ImageKeying").style.visibility = "hidden";
+    document.getElementById("ImageKeying2").style.visibility = "hidden";
+
     var rad = document.myForm.radio;
     var prev = null;
 
     for (var i = 0; i < rad.length; i++) {
       rad[i].onclick = function() {
-        // (prev)? console.log(prev.value):null;
         if (this !== prev) {
           prev = this;
         }
         if (this.value == "cat1") {
+          console.log("here")
           document.getElementById('b').disabled = false;
           document.getElementById("ImageKeying").src = "./stackable_pics/cat1.png"
           document.getElementById("ImageKeying").style.visibility = "visible";
+          document.getElementById("ImageKeying2").src = "./stackable_pics/cat1.png"
+          document.getElementById("ImageKeying2").style.visibility = "visible";
         } else if (this.value == "cat2") {
           document.getElementById('b').disabled = false;
           document.getElementById("ImageKeying").src = "./stackable_pics/cat2.png"
           document.getElementById("ImageKeying").style.visibility = "visible";
+          document.getElementById("ImageKeying2").src = "./stackable_pics/cat2.png"
+          document.getElementById("ImageKeying2").style.visibility = "visible";
         } else if (this.value == "cat3") {
           document.getElementById('b').disabled = false;
           document.getElementById("ImageKeying").src = "./stackable_pics/cat3.png"
           document.getElementById("ImageKeying").style.visibility = "visible";
-
+          document.getElementById("ImageKeying2").src = "./stackable_pics/cat3.png"
+          document.getElementById("ImageKeying2").style.visibility = "visible";
         } else if (this.value == "cat4") {
           document.getElementById('b').disabled = false;
           document.getElementById("ImageKeying").src = "./stackable_pics/cat4.png"
           document.getElementById("ImageKeying").style.visibility = "visible";
+          document.getElementById("ImageKeying2").src = "./stackable_pics/cat4.png"
+          document.getElementById("ImageKeying2").style.visibility = "visible";
 
         }
       };
@@ -142,7 +151,6 @@ if (!$user_home->is_logged_in()) {
     }
 
     function handleVideo(stream) {
-      // console.log('handleVideo')
       document.getElementById("upload_part").remove()
       var cat;
       // video.src = window.URL.createObjectURL(stream);

@@ -1,7 +1,6 @@
 <?php
-  // phpinfo();
-  session_start();
   require 'class.user.php';
+  session_start();
 
   $user_login = new USER();
 
@@ -33,8 +32,7 @@
     if (isset($_GET['inactive'])) {
       ?>
       <div class='alert alert-error'>
-        <!-- <button class='close' data-dismiss='alert'>&times;</button> -->
-        <strong>Sorry!</strong> This Account is not activated.<br />
+        This account is not activated.<br />
         Please go to your inbox and activate it.
       </div>
     <?php
@@ -46,7 +44,6 @@
     if (isset($_GET['error'])) {
       ?>
         <div class='alert alert-success'>
-          <!-- <button class='close' data-dismiss='alert'>&times;</button> -->
           <strong>Incorrect email and/or password</strong>
         </div>
       <?php

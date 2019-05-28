@@ -1,16 +1,14 @@
 <?php
-  session_start();
   require_once 'class.user.php';
+  session_start();
   $user = new USER();
-  $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-
   // if ($user->is_logged_in() != "") {
   //   $user->redirect('home.php');
   // }
 
   if (isset($_POST['btn-submit'])) {
     $email = $_POST['txtemail'];
-    $stmt = $pdo->prepare("SELECT userID FROM tbl_users WHERE userEmail=:email LIMIT 1");
+    $stmt = $user->runQuery("SELECT userID FROM tbl_users WHERE userEmail=:email LIMIT 1");
     $stmt->bindparam(":email", $email);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -57,10 +55,9 @@
 
 <head>
   <title>Forgot Password</title>
-  <!-- <link rel="stylesheet" href="home.css" type="text/css"> -->
   <link rel="stylesheet" href="index.css" type="text/css">
-
 </head>
+
 <nav>
   <a class='btn' href="home.php">Back to home</a>
   <a class='btn' href="logout.php">Logout</a>
@@ -72,7 +69,6 @@
 
     <form class="form" method="post">
       <h1>Reset your password</h1>
-
       <?php
         if (isset($msg)) {
           echo $msg;
