@@ -9,12 +9,14 @@ if ($user->is_logged_in() != "") {
 }
 
 $success = "";
+$error = "";
+$uname = "";
+$email = "";
 
 if (isset($_POST['btn-signup'])) {
   $uname = trim($_POST['txtuname']);
   $email = trim($_POST['txtemail']);
   $upass = trim($_POST['txtpass']);
-  $error = "";
   if (strlen($upass) < 6) {
     $error = "Your password must be at least 6 characters long! ";
   }

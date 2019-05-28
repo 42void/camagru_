@@ -24,7 +24,7 @@ class USER{
      $stmt = $this->runQuery("INSERT INTO tbl_users(userName,userEmail,userPass,tokenCode)
                                                   VALUES(:user_name, :user_mail, :user_pass, :active_code)");
      $stmt->bindparam(":user_name",$uname);
-     $stmt->bindparam(":user_mail",$email);
+     $stmt->bindparam(":user_mail",trim(strtolower($email)));
      $stmt->bindparam(":user_pass",$password);
      $stmt->bindparam(":active_code",$code);
      $stmt->execute();
@@ -94,7 +94,7 @@ class USER{
  public function login($email,$upass){
   try{
    $stmt = $this->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
-   $stmt->bindparam(":email_id", $email);
+   $stmt->bindparam(":email_id", trim(strtolower($email)));
    $stmt->execute();
    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
    $result = $stmt->fetchAll();
