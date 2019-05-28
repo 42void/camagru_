@@ -2,11 +2,10 @@
 require_once 'class.user.php';
 $user = new USER();
 
-if (empty($_GET['id']) && empty($_GET['code'])) {
+if (empty($_GET['code'])) {
   $user->redirect('index.php');
 }
-if (isset($_GET['id']) && isset($_GET['code'])) {
-  $id = base64_decode($_GET['id']);
+if (isset($_GET['code'])) {
   $code = $_GET['code'];
   $statusY = "Y";
   $statusN = "N";

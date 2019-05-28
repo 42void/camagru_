@@ -2,18 +2,14 @@
   require 'class.user.php';
   session_start();
 
-  $user_login = new USER();
-
-  if ($user_login->is_logged_in() != "") {
-    $user_login->redirect('home.php');
-  }
+  $user = new USER();
 
   if (isset($_POST['btn-login'])) {
     $email = trim($_POST['txtemail']);
     $upass = trim($_POST['txtupass']);
 
-    if ($user_login->login($email, $upass)) {
-      $user_login->redirect('home.php');
+    if($user->login($email, $upass)) {
+      $user->redirect('home.php');
     }
   }
 ?>
@@ -51,7 +47,7 @@
     ?>
 
       <input type="email" class="input" placeholder="Email address" name="txtemail" autocomplete="on" required />
-      <input type="password" class="input" placeholder="Password" name="txtupass" required />
+      <input type="password" class="input" placeholder="Password" name="txtupass" autocomplete="on" required />
       <div class="buttonsContainer">
         <button type="submit" class="btn" name="btn-login">
           Log in

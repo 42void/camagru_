@@ -1,7 +1,7 @@
 <?php
 require_once 'class.user.php';
 session_start();
-$userID = $_SESSION['userSession'];
+$userID = $_SESSION['userID'];
 $user = new USER();
 
 $dest = $_POST['image'];
@@ -11,7 +11,7 @@ $dest = str_replace('data:image/png;base64,', '', $dest);
 $dest = str_replace(' ', '+', $dest);
 $data_background = base64_decode($dest);
 
-$src = imagecreatefrompng("./stackable_pics/$cat.png");
+$src = imagecreatefrompng("./cat_filters/$cat.png");
 $dest=imagecreatefromstring($data_background);
 
 imagealphablending($src, false);

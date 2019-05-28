@@ -1,13 +1,13 @@
 <?php
 require_once 'class.user.php';
 session_start();
-$userID = $_SESSION['userSession'];
+$userID = $_SESSION['userID'];
 
 $user = new USER();
 
 $cat = $_POST['cat'];
 
-$src = imagecreatefrompng("./stackable_pics/$cat.png");
+$src = imagecreatefrompng("./cat_filters/$cat.png");
 $dest= imagecreatefrompng("./upload/gerard.png");
 
 imagealphablending($src, false);

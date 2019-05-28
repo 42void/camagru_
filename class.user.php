@@ -102,7 +102,7 @@ class USER{
    if($userRow){
       if($userRow['userStatus']=="Y"){
          if($userRow['userPass']==hash('whirlpool',$upass)){
-          $_SESSION['userSession'] = $userRow['userID'];
+          $_SESSION['userID'] = $userRow['userID'];
           return true;
          }
          else{
@@ -126,9 +126,18 @@ class USER{
  }
 
  public function is_logged_in(){
-  if(isset($_SESSION['userSession'])){
-   return true;
-  }
+  return(isset($_SESSION['userID']));
+ }
+
+ public function debug(){
+   echo '<pre>';
+      echo "GET:\n";
+      var_dump($_GET);
+      echo "POST:\n";
+      var_dump($_POST);
+      echo "SESSION:\n";
+      var_dump($_SESSION);
+   echo '</pre>';
  }
 
  public function redirect($url){
@@ -136,8 +145,7 @@ class USER{
  }
 
  public function logout(){
-  session_destroy();
-  $_SESSION['userSession'] = false;
+  unset($_SESSION['userID']);
  }
 
  function send_mail($email,$message,$subject){
@@ -146,11 +154,11 @@ class USER{
 			// $headers  = 'MIME-Version: 1.0' . "\r\n";
 			// $headers .= 'Content-Type: text/plain; charset="iso-8859-1"'."\n";
 			// $headers .='Content-Transfer-Encoding: 8bit';
-			mail($email, $subject, $message);
          // mail($email, $subject, $message, null, '-fal.vanhoegaerden@gmail.com');
-         echo "<script>console.log('email " .$email. "' );</script>";
-         echo "<script>console.log('subject " .$subject. "' );</script>";
-         echo "<script>console.log('message " .$message. "' );</script>";
+			mail(trim($email), $subject, $message);
+         // echo "<script>console.log('email " .$email. "' );</script>";
+         // echo "<script>console.log('subject " .$subject. "' );</script>";
+         // echo "<script>console.log('message " .$message. "' );</script>";
          // echo "<script>console.log('retour email " .mail($email, $subject, $message). "' );</script>";
 
       } catch (PDOException $ex) {

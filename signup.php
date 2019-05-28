@@ -4,17 +4,13 @@ session_start();
 
 $user = new USER();
 
-if ($user->is_logged_in() != "") {
-  $user->redirect('home.php');
-}
-
 $success = "";
 $error = "";
 $uname = "";
 $email = "";
 
 if (isset($_POST['btn-signup'])) {
-  $uname = trim($_POST['txtuname']);
+  $uname = strip_tags(trim($_POST['txtuname']));
   $email = trim($_POST['txtemail']);
   $upass = trim($_POST['txtpass']);
   if (strlen($upass) < 6) {

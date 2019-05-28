@@ -2,7 +2,7 @@
 require_once 'class.user.php';
 session_start();
 $user = new USER();
-$userID = $_SESSION['userSession'];
+$userID = $_SESSION['userID'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +18,7 @@ $userID = $_SESSION['userSession'];
   <header>
     <h1 class='title'>Gallery</h1>
   </header>
-  <?php if ($_SESSION['userSession']) { ?>
+  <?php if($user->is_logged_in()) { ?>
 
     <nav>
       <a class='btn' href="home.php">Back to home</a>
@@ -86,11 +86,11 @@ $userID = $_SESSION['userSession'];
     }
 
     echo '<img width=250 height=188 src=' . $src . '>';
-    if ($_SESSION['userSession']) {
+    if ($user->is_logged_in()) {
       echo '
               <div class="likes_counter">
                 <p class="number_likes">' . $numberLikes . '</p>
-                <img class=like_icon onclick="onClickFunction(event);"  id=' . $id . ' width=25 height=30 src="./stackable_pics/thumbUp.png">
+                <img class=like_icon onclick="onClickFunction(event);"  id=' . $id . ' width=25 height=30 src="./cat_filters/thumbUp.png">
               </div>
               <div class="sent_comment" id="sentComment_' . $id . '">
 

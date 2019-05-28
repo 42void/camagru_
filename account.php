@@ -3,11 +3,12 @@ session_start();
 require_once 'class.user.php';
 $user = new USER();
 
-// if ($reg_user->is_logged_in() != "") {
-//   $reg_user->redirect('home.php');
-// }
+if (!$user->is_logged_in()) {
+  $user->redirect('index.php');
+}
+
 $stmt = $user->runQuery("SELECT userName, userEmail FROM tbl_users WHERE userID = :session");
-$stmt->bindparam(":session", $_SESSION['userSession']);
+$stmt->bindparam(":session", $_SESSION['userID']);
 $select = $stmt->execute();
 $row=$stmt->fetch(PDO::FETCH_ASSOC);
 $phusername=$row['userName'];
@@ -19,7 +20,7 @@ if (isset($_POST['btn-update'])) {
   $stmt2 = $user->runQuery("UPDATE tbl_users SET userName = :uname, userEmail = :email WHERE userID = :session");
   $stmt2->bindparam(":uname", $uname);
   $stmt2->bindparam(":email", trim(strtolower($email)));
-  $stmt2->bindparam(":session", $_SESSION['userSession']);
+  $stmt2->bindparam(":session", $_SESSION['userID']);
   $update = $stmt2->execute();
   if ($update) {
     Header('Location: '.$_SERVER['PHP_SELF']);

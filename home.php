@@ -32,19 +32,19 @@ if (!$user->is_logged_in()) {
   <form name="myForm" class='catRow' method="post">
     <label>
       <input type="radio" name="radio" id="cat1" value="cat1">
-      <img src="./stackable_pics/cat1.png" class="vignettas">
+      <img src="./cat_filters/cat1.png" class="vignettas">
     </label>
     <label>
       <input type="radio" name="radio" id="cat2" value="cat2" />
-      <img src="./stackable_pics/cat2.png" class="vignettas">
+      <img src="./cat_filters/cat2.png" class="vignettas">
     </label>
     <label>
       <input type="radio" name="radio" id="cat3" value="cat3" />
-      <img src="./stackable_pics/cat3.png" class="vignettas">
+      <img src="./cat_filters/cat3.png" class="vignettas">
     </label>
     <label>
       <input type="radio" name="radio" id="cat4" value="cat4" />
-      <img src="./stackable_pics/cat4.png" class="vignettas">
+      <img src="./cat_filters/cat4.png" class="vignettas">
     </label>
   </form>
   <!-- END CATS -->
@@ -63,23 +63,21 @@ if (!$user->is_logged_in()) {
 
         <div id="divPos">
           <video autoplay="true" id="videoElement"></video>
-          <img id="ImageKeying" />
+          <img id="filter" />
         </div>
 
         <!-- UPLOAD -->
         <div id="upload_part">
-
           <div id="divPos2">
-            <img id="ImageKeying2" />
-            <iframe name="fouloulou" class="iframe_upload" id="home"></iframe>
-            <form enctype="multipart/form-data" action="upload.php" method="post" target="fouloulou">
+            <img id="filter2" />
+            <iframe name="frame" class="iframe_upload" id="home"></iframe>
+            <form enctype="multipart/form-data" action="upload.php" method="POST" target="frame">
               <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
               <label for="userfile">Upload a file (max. 1 Mo) :</label><br />
               <input name="userfile" id="userfile" type="file" />
               <input type="submit" value="OK" />
             </form>
           </div>
-
         </div>
 
       </div>
@@ -97,8 +95,8 @@ if (!$user->is_logged_in()) {
   </footer>
   <script>
     var tmp = 0;
-    document.getElementById("ImageKeying").style.visibility = "hidden";
-    document.getElementById("ImageKeying2").style.visibility = "hidden";
+    document.getElementById("filter").style.visibility = "hidden";
+    document.getElementById("filter2").style.visibility = "hidden";
 
     var rad = document.myForm.radio;
     var prev = null;
@@ -111,28 +109,28 @@ if (!$user->is_logged_in()) {
         if (this.value == "cat1") {
           console.log("here")
           document.getElementById('b').disabled = false;
-          document.getElementById("ImageKeying").src = "./stackable_pics/cat1.png"
-          document.getElementById("ImageKeying").style.visibility = "visible";
-          document.getElementById("ImageKeying2").src = "./stackable_pics/cat1.png"
-          document.getElementById("ImageKeying2").style.visibility = "visible";
+          document.getElementById("filter").src = "./cat_filters/cat1.png"
+          document.getElementById("filter").style.visibility = "visible";
+          document.getElementById("filter2").src = "./cat_filters/cat1.png"
+          document.getElementById("filter2").style.visibility = "visible";
         } else if (this.value == "cat2") {
           document.getElementById('b').disabled = false;
-          document.getElementById("ImageKeying").src = "./stackable_pics/cat2.png"
-          document.getElementById("ImageKeying").style.visibility = "visible";
-          document.getElementById("ImageKeying2").src = "./stackable_pics/cat2.png"
-          document.getElementById("ImageKeying2").style.visibility = "visible";
+          document.getElementById("filter").src = "./cat_filters/cat2.png"
+          document.getElementById("filter").style.visibility = "visible";
+          document.getElementById("filter2").src = "./cat_filters/cat2.png"
+          document.getElementById("filter2").style.visibility = "visible";
         } else if (this.value == "cat3") {
           document.getElementById('b').disabled = false;
-          document.getElementById("ImageKeying").src = "./stackable_pics/cat3.png"
-          document.getElementById("ImageKeying").style.visibility = "visible";
-          document.getElementById("ImageKeying2").src = "./stackable_pics/cat3.png"
-          document.getElementById("ImageKeying2").style.visibility = "visible";
+          document.getElementById("filter").src = "./cat_filters/cat3.png"
+          document.getElementById("filter").style.visibility = "visible";
+          document.getElementById("filter2").src = "./cat_filters/cat3.png"
+          document.getElementById("filter2").style.visibility = "visible";
         } else if (this.value == "cat4") {
           document.getElementById('b').disabled = false;
-          document.getElementById("ImageKeying").src = "./stackable_pics/cat4.png"
-          document.getElementById("ImageKeying").style.visibility = "visible";
-          document.getElementById("ImageKeying2").src = "./stackable_pics/cat4.png"
-          document.getElementById("ImageKeying2").style.visibility = "visible";
+          document.getElementById("filter").src = "./cat_filters/cat4.png"
+          document.getElementById("filter").style.visibility = "visible";
+          document.getElementById("filter2").src = "./cat_filters/cat4.png"
+          document.getElementById("filter2").style.visibility = "visible";
 
         }
       };
@@ -248,7 +246,7 @@ if (!$user->is_logged_in()) {
             document.getElementById("sidebar").appendChild(upload_img);
           }
         };
-        ajx.open("POST", "merge2.php", true);
+        ajx.open("POST", "merge_upload.php", true);
         ajx.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         ajx.send(creds);
       }

@@ -2,7 +2,7 @@
   require_once 'class.user.php';
   session_start();
   $user = new USER();
-  $userID = $_SESSION['userSession'];
+  $userID = $_SESSION['userID'];
   $pictureID = $_POST['targetID2'];
   $comment = strip_tags($_POST['comment']);
 
