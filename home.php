@@ -75,7 +75,7 @@ if (!$user->is_logged_in()) {
               <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
               <label for="userfile">Upload a file (max. 1 Mo) :</label><br />
               <input name="userfile" id="userfile" type="file" />
-              <input type="submit" value="OK" />
+              <input type="submit" value="Upload" />
             </form>
           </div>
         </div>
@@ -107,7 +107,6 @@ if (!$user->is_logged_in()) {
           prev = this;
         }
         if (this.value == "cat1") {
-          console.log("here")
           document.getElementById('b').disabled = false;
           document.getElementById("filter").src = "./cat_filters/cat1.png"
           document.getElementById("filter").style.visibility = "visible";
