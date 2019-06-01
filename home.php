@@ -29,7 +29,6 @@ if (!$user->is_logged_in()) {
     </nav>
   </header>
 
-  <!-- CATS -->
   <form name="myForm" class='catRow' method="post">
     <label>
       <input type="radio" name="radio" id="cat1" value="cat1">
@@ -48,26 +47,20 @@ if (!$user->is_logged_in()) {
       <img src="./cat_filters/cat4.png" class="vignettas">
     </label>
   </form>
-  <!-- END CATS -->
-
 
   <div class="mainPlusSide">
     <section id="main">
 
       <div>
 
-        <!-- IMG UPLOADED -->
         <div id="img_uploaded"></div>
         <div id="ret_img_uploaded"></div>
-
-        <!-- VIDEO -->
 
         <div id="divPos">
           <video autoplay="true" id="videoElement"></video>
           <img id="filter" />
         </div>
 
-        <!-- UPLOAD -->
         <div id="upload_part">
           <div id="divPos2">
             <img id="filter2" />
@@ -83,11 +76,8 @@ if (!$user->is_logged_in()) {
 
       </div>
       <button id="b" class="btn cameraBtn" type="button">Take picture</button>
-
     </section>
-
-    <aside id="sidebar">
-    </aside>
+    <aside id="sidebar"></aside>
   </div>
   <p id="mes"></p>
 

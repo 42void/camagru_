@@ -152,17 +152,7 @@ class USER{
 
  function send_mail($email,$message,$subject){
       try {
-			// $message = 'Hello';
-			// $headers  = 'MIME-Version: 1.0' . "\r\n";
-			// $headers .= 'Content-Type: text/plain; charset="iso-8859-1"'."\n";
-			// $headers .='Content-Transfer-Encoding: 8bit';
-         // mail($email, $subject, $message, null, '-fal.vanhoegaerden@gmail.com');
 			mail(trim($email), $subject, $message);
-         // echo "<script>console.log('email " .$email. "' );</script>";
-         // echo "<script>console.log('subject " .$subject. "' );</script>";
-         // echo "<script>console.log('message " .$message. "' );</script>";
-         // echo "<script>console.log('retour email " .mail($email, $subject, $message). "' );</script>";
-
       } catch (PDOException $ex) {
          echo $ex->getMessage();
       }

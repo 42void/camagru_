@@ -1,7 +1,6 @@
 
 label > input{
   visibility: hidden;
-  /* position: absolute; */
 }
 
 label > input + img{
@@ -12,51 +11,12 @@ label > input:checked + img{
   border:2px solid #0038ff;
 }
 
-/* #main {
-  padding:0.5em;
-  float:left;
-  width:auto;
-  height: auto;
-  background-color: #e4e4e4;
-  margin-bottom: 1em;
-} */
-/* 
-#sidebar {
-  margin-left:2%;
-  margin-top:1em;
-
-} */
-/* 
-nav{
-  flex-direction: row;
-  justify-content: center;
-  padding:1em;
-  margin-top:1em;
-  margin-bottom: 1em;
-}
-
-nav>a{
-    border-radius: 10px;
-} */
-/* 
-video{
-  width: 100%;
-  height: auto;
-} */
-
 .catRow{
   border:1px solid #f0f0f0;
   display: flex;
-  /* flex-direction: row; */
   justify-content: center;
   margin: 4rem 0;
 }
-
-/* .tinyCat{
-  flex:1;
-  margin:1em;
-} */
-
 
 #mes{
   margin:1rem
@@ -68,8 +28,7 @@ video{
 
 .lilImg{
   margin: 0 0 1em 1em;
- height: 8rem;
-  /* width: 8rem;  */
+  height: 8rem;
 } 
 
 .cameraBtn{
@@ -118,9 +77,7 @@ footer {
   top:1%;
   left:1%;
   position: absolute;
-
   width:45%;
-
   height:55%;
 }
 
@@ -147,21 +104,12 @@ footer {
   width:100%;
 }
 .iframe_upload{
-  /* display: flex; */
   width:100%;
   height: 30rem;
-  /* height: 290px; */
   display: flex;
   align-content: center;
   justify-content: center;
 }
-
-/* 
-canvas.canvas{
-  margin-left: 2.5em;
-  margin-bottom: 2em;
-} */
-
 
 .noPictureYet{
   font-family:sans-serif;
@@ -309,7 +257,6 @@ canvas.canvas{
 }
 
 .paginationContainer>a{
-  /* display: block; */
   margin:0.2rem;
 }
 

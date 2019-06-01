@@ -38,11 +38,6 @@ if (isset($_POST['btn-update'])) {
 </head>
 
 <body id="login">
-  <!-- <script>
-    function confirm(){
-      alert("Credentials updated")
-    }
-  </script> -->
   <div class="container">
     <nav>
       <a class='btn' href="home.php">Back to home</a>

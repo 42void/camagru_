@@ -3,9 +3,6 @@
   session_start();
   unset($_SESSION['success']);
   $user = new USER();
-  // if (!$user->is_logged_in()) {
-  //   $user->redirect('index.php');
-  // }
 
   if (isset($_POST['btn-submit'])) {
     $email = htmlspecialchars($_POST['txtemail']);
