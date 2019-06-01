@@ -36,7 +36,7 @@ if (isset($_GET['code'])) {
   } else {
     $msg = "
           <div class='alert alert-error'>
-            <strong>Sorry !</strong>  No Account Found : <a class='btn' href='signup.php'>Signup here</a>
+            Sorry! No account found : <a class='btn' href='signup.php'>Signup here</a>
           </div>
       ";
   }
