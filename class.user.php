@@ -137,6 +137,8 @@ class USER{
       var_dump($_POST);
       echo "SESSION:\n";
       var_dump($_SESSION);
+      echo "FILES:\n";
+      var_dump($_FILES);
    echo '</pre>';
  }
 
