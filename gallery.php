@@ -96,7 +96,7 @@ $userID = $_SESSION['userID'];
 
             ';
       while ($row = $comments_db->fetch(PDO::FETCH_ASSOC)) {
-        echo '<div class="comment" id="sentComment_' . $id . '">' . $row['comment'] . '</div>';
+        echo '<div class="comment" id="sentComment_' . $id . '">' . htmlspecialchars($row['comment']) . '</div>';
       }
       echo '
               </div>
