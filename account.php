@@ -23,7 +23,8 @@ if (isset($_POST['btn-update'])) {
   $stmt2->bindparam(":session", $_SESSION['userID']);
   $update = $stmt2->execute();
   if ($update) {
-    Header('Location: '.$_SERVER['PHP_SELF']);
+    $_SESSION['success'] = 1;
+    Header('Location: '.htmlspecialchars($_SERVER['PHP_SELF']));
   }
 }
 
@@ -55,6 +56,7 @@ if (isset($_POST['btn-update'])) {
       <div>
         <div id='msg'></div>
         <div class="signup-btn-container">
+          <?php if(isset($_SESSION['success'])){echo "Your credentials have been updated";}?>
           <button type="submit" class="btn" name="btn-update">
             Update
           </button>
