@@ -75,7 +75,7 @@ if (!$user->is_logged_in()) {
         </div>
 
       </div>
-      <button id="b" class="btn cameraBtn" type="button">Take picture</button>
+      <button id="b" disabled class="btn cameraBtn" type="button">Take picture</button>
     </section>
     <aside id="sidebar"></aside>
   </div>

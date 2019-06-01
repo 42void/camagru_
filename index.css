@@ -60,6 +60,10 @@ body{
   text-align: center;
 }
 
+.btn:disabled{
+  background-color: grey;
+}
+
 .forgotPswd{
   margin:1rem;
   text-decoration: none;
