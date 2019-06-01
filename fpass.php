@@ -7,7 +7,7 @@
   // }
 
   if (isset($_POST['btn-submit'])) {
-    $email = $_POST['txtemail'];
+    $email = htmlspecialchars($_POST['txtemail']);
     $stmt = $user->runQuery("SELECT userID FROM tbl_users WHERE userEmail=:email LIMIT 1");
     $stmt->bindparam(":email", $email);
     $stmt->execute();
