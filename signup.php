@@ -10,8 +10,8 @@ $uname = "";
 $email = "";
 
 if (isset($_POST['btn-signup'])) {
-  $uname = strip_tags(trim($_POST['txtuname']));
-  $email = trim($_POST['txtemail']);
+  $uname = htmlspecialchars(trim($_POST['txtuname']));
+  $email = htmlspecialchars(trim($_POST['txtemail']));
   $upass = trim($_POST['txtpass']);
   if (strlen($upass) < 6) {
     $error = "Your password must be at least 6 characters long! ";
@@ -96,9 +96,9 @@ if (isset($_POST['btn-signup'])) {
 
     <form class="form" method="post">
       <h1>Sign up</h1>
-      <input class="input" type="text" placeholder="Username" name="txtuname" required <?php if($error !== "") echo "value='$uname'"; ?> />
-      <input class="input" type="email" placeholder="Email address" name="txtemail" required <?php if($error !== "") echo "value='$email'"; ?> />
-      <input class="input" type="password" placeholder="Password" name="txtpass" required />
+      <input class="input" autocomplete="on" type="text" placeholder="Username" name="txtuname" required <?php if($error !== "") echo "value='$uname'"; ?> />
+      <input class="input" autocomplete="on" type="email" placeholder="Email address" name="txtemail" required <?php if($error !== "") echo "value='$email'"; ?> />
+      <input class="input" autocomplete="off" type="password" placeholder="Password" name="txtpass" required />
       Password must be at least be 6 characters long, with 1 number, 1 symbol and 1 capital letter
       <div>
         <div class="signup-btn-container">
