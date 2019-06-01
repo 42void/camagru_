@@ -3,8 +3,8 @@
   session_start();
   $user = new USER();
   $userID = $_SESSION['userID'];
-  $pictureID = $_POST['targetID2'];
-  $comment = strip_tags($_POST['comment']);
+  $pictureID = htmlspecialchars($_POST['targetID2']);
+  $comment = htmlspecialchars($_POST['comment']);
 
   $user->recordComments($pictureID, $userID, $comment);
 
@@ -17,7 +17,7 @@
        ";
   $subject = "New comment";
 
-echo $pictureID;
+  echo $pictureID;
   $stmt = $user->runQuery("SELECT userID FROM pictures WHERE pictureID=:pictureID LIMIT 1");
   $stmt->bindparam(":pictureID", $pictureID);
   $stmt->execute();
