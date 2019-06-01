@@ -27,7 +27,7 @@
 
           Click following link to reset your password :
 
-          http://localhost:8000/resetpass.php?id=$id&code=$code
+          http://localhost:8080/resetpass.php?id=$id&code=$code
 
           Thanks!
           ";

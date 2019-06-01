@@ -51,9 +51,6 @@ if (isset($_GET['code'])) {
   <link rel="stylesheet" href="index.css" type="text/css">
   <link rel="stylesheet" href="home.css" type="text/css">
 </head>
-<nav>
-  <a class='btn' href="logout.php">Logout</a>
-</nav>
 
 <body class="logoutDisplay" id="login">
   <div class="container">

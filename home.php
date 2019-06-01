@@ -64,7 +64,14 @@ if (!$user->is_logged_in()) {
         <div id="upload_part">
           <div id="divPos2">
             <img id="filter2" />
-            <iframe name="frame" class="iframe_upload" id="home"></iframe>
+            <iframe name="frame" class="iframe_upload" id="home">
+              <html>
+                <body>
+                    <img width='100%' height='auto' src='./upload/gerard.png' />
+                  
+                </body>
+              </html>
+            </iframe>
             <form enctype="multipart/form-data" action="upload.php" method="POST" target="frame">
               <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
               <label for="userfile">Upload a file (max. 1 Mo) :</label><br />
@@ -101,26 +108,26 @@ if (!$user->is_logged_in()) {
           document.getElementById('b').disabled = false;
           document.getElementById("filter").src = "./cat_filters/cat1.png"
           document.getElementById("filter").style.visibility = "visible";
-          document.getElementById("filter2").src = "./cat_filters/cat1.png"
-          document.getElementById("filter2").style.visibility = "visible";
+          document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat1.png" : '';
+          document.getElementById("filter2") ? document.getElementById("filter2").style.visibility = "visible" : '';
         } else if (this.value == "cat2") {
           document.getElementById('b').disabled = false;
           document.getElementById("filter").src = "./cat_filters/cat2.png"
           document.getElementById("filter").style.visibility = "visible";
-          document.getElementById("filter2").src = "./cat_filters/cat2.png"
-          document.getElementById("filter2").style.visibility = "visible";
+          document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat2.png" : '';
+          document.getElementById("filter2") ? document.getElementById("filter2").style.visibility = "visible" : '';
         } else if (this.value == "cat3") {
           document.getElementById('b').disabled = false;
           document.getElementById("filter").src = "./cat_filters/cat3.png"
           document.getElementById("filter").style.visibility = "visible";
-          document.getElementById("filter2").src = "./cat_filters/cat3.png"
-          document.getElementById("filter2").style.visibility = "visible";
+          document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat3.png" : '';
+          document.getElementById("filter2") ? document.getElementById("filter2").style.visibility = "visible" : '';
         } else if (this.value == "cat4") {
           document.getElementById('b').disabled = false;
           document.getElementById("filter").src = "./cat_filters/cat4.png"
           document.getElementById("filter").style.visibility = "visible";
-          document.getElementById("filter2").src = "./cat_filters/cat4.png"
-          document.getElementById("filter2").style.visibility = "visible";
+          document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat4.png" : '';
+          document.getElementById("filter2") ? document.getElementById("filter2").style.visibility = "visible" : '';
 
         }
       };

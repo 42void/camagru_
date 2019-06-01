@@ -61,7 +61,7 @@ body{
 }
 
 .btn:disabled{
-  background-color: grey;
+  background-color: #ccc;
 }
 
 .forgotPswd{
