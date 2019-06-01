@@ -11,8 +11,8 @@ $stmt = $user->runQuery("SELECT userName, userEmail FROM tbl_users WHERE userID 
 $stmt->bindparam(":session", $_SESSION['userID']);
 $select = $stmt->execute();
 $row=$stmt->fetch(PDO::FETCH_ASSOC);
-$phusername=$row['userName'];
-$phemail=$row['userEmail'];
+$phusername=htmlspecialchars($row['userName']);
+$phemail=htmlspecialchars($row['userEmail']);
 
 if (isset($_POST['btn-update'])) {
   $uname = trim($_POST['txtuname']);
@@ -26,6 +26,7 @@ if (isset($_POST['btn-update'])) {
     Header('Location: '.$_SERVER['PHP_SELF']);
   }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +37,11 @@ if (isset($_POST['btn-update'])) {
 </head>
 
 <body id="login">
-
+  <!-- <script>
+    function confirm(){
+      alert("Credentials updated")
+    }
+  </script> -->
   <div class="container">
     <nav>
       <a class='btn' href="home.php">Back to home</a>
@@ -44,9 +49,9 @@ if (isset($_POST['btn-update'])) {
     </nav>
     <h1 class="title">Account settings</h1>
 
-    <form class="form" method="post">
-      <input class="input" id="username" type="text" placeholder=<?php echo $phusername ?> name="txtuname" required />
-      <input class="input" id="email" type="email" placeholder=<?php echo $phemail ?> name="txtemail" required />
+    <form class="form" action="account.php" method="post">
+      <input class="input" id="username" type="text" value=<?php if(isset($phusername)) echo $phusername; else echo "username"; ?> name="txtuname" required />
+      <input class="input" id="email" type="email" value=<?php if(isset($phemail)) echo $phemail; else echo "email"; ?> name="txtemail" required />
       <div>
         <div id='msg'></div>
         <div class="signup-btn-container">
