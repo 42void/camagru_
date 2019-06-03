@@ -64,19 +64,20 @@ if (!$user->is_logged_in()) {
         <div id="upload_part">
           <div id="divPos2">
             <img id="filter2" />
-            <iframe name="frame" class="iframe_upload" id="home">
-              <html>
-                <body>
-                    <img width='100%' height='auto' src='./upload/gerard.png' />
-                  
-                </body>
-              </html>
-            </iframe>
+            <iframe name="frame" class="iframe_upload" id="home"></iframe>
+            <?php if(file_exists("upload/gerard.png")) { ?>
+              <script>
+              window.setTimeout(() => {
+              document.getElementById('home').contentWindow.document.write(
+              "<html><body><img width='100%' height='auto' src='./upload/gerard.png' /></body></html>"
+              ); }, 250);
+              </script>
+            <?php } ?>
             <form enctype="multipart/form-data" action="upload.php" method="POST" target="frame">
               <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
               <label for="userfile">Upload a file (max. 1 Mo) :</label><br />
               <input name="userfile" id="userfile" type="file" />
-              <input type="submit" value="Upload" />
+              <input type="submit" onclick="setTimeout(is_gege_exist(), 300);" value="Upload" />
             </form>
           </div>
         </div>
@@ -92,6 +93,19 @@ if (!$user->is_logged_in()) {
     <p class="mentions">© 2019 Copyright AnneLoutre</a></p>
   </footer>
   <script>
+    var gege;
+
+    function is_gege_exist() {
+      var ajx = new XMLHttpRequest();
+      ajx.onreadystatechange = function() {
+          gege = this.responseText
+          if (document.getElementById("filter2").style.visibility === "visible") {
+            document.getElementById('b').disabled = false;
+          } else document.getElementById('b').disabled = true;
+      };
+      ajx.open("POST", "is_gege_exist.php", true);
+      ajx.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    }
     var tmp = 0;
     document.getElementById("filter").style.visibility = "hidden";
     document.getElementById("filter2").style.visibility = "hidden";
@@ -105,7 +119,7 @@ if (!$user->is_logged_in()) {
           prev = this;
         }
         if (this.value == "cat1") {
-          document.getElementById('b').disabled = false;
+          "<?php echo file_exists('./upload/gerard.png'); ?>" && true ? document.getElementById('b').disabled = false : '';
           document.getElementById("filter").src = "./cat_filters/cat1.png"
           document.getElementById("filter").style.visibility = "visible";
           document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat1.png" : '';
@@ -128,7 +142,6 @@ if (!$user->is_logged_in()) {
           document.getElementById("filter").style.visibility = "visible";
           document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat4.png" : '';
           document.getElementById("filter2") ? document.getElementById("filter2").style.visibility = "visible" : '';
-
         }
       };
     }
@@ -236,7 +249,6 @@ if (!$user->is_logged_in()) {
         var ajx = new XMLHttpRequest();
         ajx.onreadystatechange = function() {
           if (ajx.readyState == 4 && ajx.status == 200) {
-
             var upload_img = document.createElement("img");
             upload_img.className = "lilImg";
             upload_img.src = this.responseText;

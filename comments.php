@@ -29,6 +29,5 @@
   $stmt2->execute();
   $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
   $email = $row2["userEmail"];
-  var_dump($email)
-;  $user->send_mail($email,$message,$subject);
+  $user->send_mail($email,$message,$subject);
 ?>

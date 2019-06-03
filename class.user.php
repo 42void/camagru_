@@ -129,19 +129,6 @@ class USER{
   return(isset($_SESSION['userID']));
  }
 
- public function debug(){
-   echo '<pre>';
-      echo "GET:\n";
-      var_dump($_GET);
-      echo "POST:\n";
-      var_dump($_POST);
-      echo "SESSION:\n";
-      var_dump($_SESSION);
-      echo "FILES:\n";
-      var_dump($_FILES);
-   echo '</pre>';
- }
-
  public function redirect($url){
   header("Location: $url");
  }

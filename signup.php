@@ -45,7 +45,7 @@ if (isset($_POST['btn-signup'])) {
       }
     } else {
       if ($user->register($uname, $email, $upass, $code)) {
-        echo "<script>console.log('code " . $code . "' );</script>";
+        // echo "<script>console.log('code " . $code . "' );</script>";
         $message = "
       Hello $uname,
 
