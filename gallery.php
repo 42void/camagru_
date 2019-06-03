@@ -25,7 +25,11 @@ $userID = $_SESSION['userID'];
       <a class='btn' href="logout.php">Logout</a>
     </nav>
 
-  <?php } ?>
+  <?php }else{ ?>
+    <nav>
+      <a class='btn' href="index.php">Log in</a>
+    </nav>
+  <?php }?>
 
   <?php
   $stmt = $user->runQuery('SELECT count(distinct pictureID) FROM pictures');
