@@ -2,7 +2,6 @@
 require_once 'class.user.php';
 session_start();
 $userID = $_SESSION['userID'];
-
 $user = new USER();
 
 $cat = $_POST['cat'];
@@ -13,22 +12,12 @@ $dest= imagecreatefrompng("./upload/gerard.png");
 imagealphablending($src, false);
 imagesavealpha($src, true);
 
-$src_width = imagesx($src);
-$src_height = imagesy($src);
-$dest_width = imagesx($dest);
-$dest_height = imagesy($dest);
+list($cat_width, $cat_height) = getimagesize("./cat_filters/$cat.png");
+list($uploaded_width, $uploaded_height) = getimagesize("./upload/gerard.png");
 
-$percent = 0.6;
+$percent = 0.4;
 
-$dest_x = $dest_width - $src_width;
-$dest_y = $dest_height - $src_height;
-
-if ($dest_width - 235 > 0 && $dest_height - 200 > 0){
-  $dest_width = $dest_width-235;
-  $dest_height = $dest_height-200;
-}
-
-imagecopyresized($dest, $src, 10, 10, 0, 0, $dest_width* $percent , $dest_height* $percent, $src_width, $src_height);
+imagecopyresized($dest, $src, 10, 10, 0, 0, $uploaded_width * $percent , $uploaded_width * $percent, $cat_width, $cat_height);
 
 $ret = "./results/".uniqid().".png";
 imagepng($dest, $ret);

@@ -73,7 +73,7 @@ if (!$user->is_logged_in()) {
                       "<html><body><img width='100%' height='auto' src='./upload/gerard.png' /></body></html>"
                     );
                   }
-                }, 100);
+                }, 250);
               </script>
             <?php } ?>
             <form enctype="multipart/form-data" action="upload.php" method="POST" target="frame">

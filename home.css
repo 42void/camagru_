@@ -74,8 +74,8 @@ footer {
 
 #filter{
   z-index: 1;
-  top:1%;
-  left:1%;
+  top:2%;
+  left:2%;
   position: absolute;
   width:45%;
   height:55%;
@@ -83,13 +83,13 @@ footer {
 
 #filter2{
   z-index: 1;
-  top:1%;
-  left:1%;
+  top:4%;
+  left:4%;
   position: absolute;
 
-  width:45%;
+  width:40%;
 
-  height:55%;
+  height:50%;
 }
 
 #divPos{
