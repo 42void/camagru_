@@ -1,1 +1,1 @@
-<?php echo (file_exists("upload/gerard.png") ? true : false); ?>
+<?php echo json_encode(file_exists('./upload/gerard.png')); ?>
