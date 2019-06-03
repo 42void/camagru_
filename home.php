@@ -80,7 +80,7 @@ if (!$user->is_logged_in()) {
               <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
               <label for="userfile">Upload a file (max. 1 Mo) :</label><br />
               <input name="userfile" id="userfile" type="file" />
-              <input type="submit" onclick="setTimeout(is_gege_exist, 1000);" value="Upload" />
+              <input type="submit" onclick="setTimeout(is_gege_exist, 500);" value="Upload" />
             </form>
           </div>
         </div>

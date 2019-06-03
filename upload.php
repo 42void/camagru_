@@ -28,7 +28,6 @@ if (!empty($_FILES["userfile"]) && !$_FILES['userfile']['error'] && is_uploaded_
   if ($_FILES['userfile']['error'] ==  1 || $_FILES['userfile']['error'] == 2)
     echo 'Only images under 1Mb are accepted for upload';
   else{
-    @unlink("./upload/gerard.png");
     echo "File couldn't be uploaded";
   }
 }
