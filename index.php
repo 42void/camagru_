@@ -1,17 +1,17 @@
 <?php
-  require 'class.user.php';
-  session_start();
+require 'class.user.php';
+session_start();
 
-  $user = new USER();
+$user = new USER();
 
-  if (isset($_POST['btn-login'])) {
-    $email = trim($_POST['txtemail']);
-    $upass = trim($_POST['txtupass']);
+if (isset($_POST['btn-login'])) {
+  $username = trim($_POST['txtusername']);
+  $upass = trim($_POST['txtupass']);
 
-    if($user->login($email, $upass)) {
-      $user->redirect('home.php');
-    }
+  if ($user->login($username, $upass)) {
+    $user->redirect('home.php');
   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,31 +31,27 @@
         This account is not activated.<br />
         Please go to your inbox and activate it.
       </div>
-      <?php
-  }
-  ?>
+    <?php
+    }
+    ?>
     <h1 class='title'>Camagru</h1>
     <form class="form" method="post">
       <a class='btn' href="gallery.php">Offline gallery</a>
       <?php
-    if (isset($_GET['error'])) {
-      ?>
+      if (isset($_GET['error'])) {
+        ?>
         <div class='alert alert-success'>
-          <strong>Incorrect email and/or password</strong>
+          <strong>Incorrect username and/or password</strong>
         </div>
-        <?php
-    }
-    ?>
+      <?php
+      }
+      ?>
 
-<input type="email" class="input" placeholder="Email address" name="txtemail" autocomplete="on" required />
-<input type="password" class="input" placeholder="Password" name="txtupass" autocomplete="on" required />
-<div class="buttonsContainer">
-  <button type="submit" class="btn" name="btn-login">
-    Log in
-        </button>
-        <a href="signup.php" class="btn">
-          Sign up
-        </a>
+      <input type="text" class="input" placeholder="Username" name="txtusername" autocomplete="on" required />
+      <input type="password" class="input" placeholder="Password" name="txtupass" autocomplete="on" required />
+      <div class="buttonsContainer">
+        <button type="submit" class="btn" name="btn-login">Log in</button>
+        <a href="signup.php" class="btn">Sign up</a>
       </div>
       <a class="forgotPswd" href="fpass.php">Forgot your password ? </a>
     </form>

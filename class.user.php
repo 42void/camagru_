@@ -91,10 +91,10 @@ class USER{
    }
  }
 
- public function login($email,$upass){
+ public function login($username,$upass){
   try{
-   $stmt = $this->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
-   $stmt->bindparam(":email_id", trim(strtolower($email)));
+   $stmt = $this->runQuery("SELECT * FROM tbl_users WHERE userName=:username");
+   $stmt->bindparam(":username", trim(strtolower($username)));
    $stmt->execute();
    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
    $result = $stmt->fetchAll();
