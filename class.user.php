@@ -94,7 +94,8 @@ class USER{
  public function login($username,$upass){
   try{
    $stmt = $this->runQuery("SELECT * FROM tbl_users WHERE userName=:username");
-   $stmt->bindparam(":username", trim(strtolower($username)));
+   $clean_username = trim(strtolower($username));
+   $stmt->bindparam(":username", $clean_username);
    $stmt->execute();
    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
    $result = $stmt->fetchAll();

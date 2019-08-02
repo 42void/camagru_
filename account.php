@@ -19,7 +19,8 @@ if (isset($_POST['btn-update'])) {
   $email = trim($_POST['txtemail']);
   $stmt2 = $user->runQuery("UPDATE tbl_users SET userName = :uname, userEmail = :email WHERE userID = :session");
   $stmt2->bindparam(":uname", $uname);
-  $stmt2->bindparam(":email", trim(strtolower($email)));
+  $clean_email = trim(strtolower($email));
+  $stmt2->bindparam(":email", $clean_email);
   $stmt2->bindparam(":session", $_SESSION['userID']);
   $update = $stmt2->execute();
   if ($update) {
