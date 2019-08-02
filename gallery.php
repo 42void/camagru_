@@ -2,7 +2,9 @@
 require_once 'class.user.php';
 session_start();
 $user = new USER();
-$userID = $_SESSION['userID'];
+if (!$user->is_logged_in()) {
+  $userID = $_SESSION['userID'];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,24 +70,27 @@ $userID = $_SESSION['userID'];
     $numberLikes = $count_likes->fetch(PDO::FETCH_ASSOC);
     $numberLikes = $numberLikes['count(distinct userID)'];
 
+    if (!$numberLikes) {
+      $numberLikes = 0;
+    }
 
     $comments_db = $user->runQuery('SELECT * FROM comments WHERE pictureID = :picture_id');
     $comments_db->bindparam(":picture_id", $pictureID);
     $comments_db->execute();
 
+    if (!$user->is_logged_in()) {
+      $delete_img = $user->runQuery('SELECT * FROM pictures WHERE pictureID = :picture_id AND userID = :user_id');
+      $delete_img->bindparam(":picture_id", $pictureID);
+      $delete_img->bindparam(":user_id", $userID);
+      $delete_img->execute();
 
-    $delete_img = $user->runQuery('SELECT * FROM pictures WHERE pictureID = :picture_id AND userID = :user_id');
-    $delete_img->bindparam(":picture_id", $pictureID);
-    $delete_img->bindparam(":user_id", $userID);
-    $delete_img->execute();
-
-    if (!$numberLikes) {
-      $numberLikes = 0;
-    }
-    echo '<div class="gallery_img">';
-    if ($delete_img->fetch(PDO::FETCH_ASSOC)) {
-      echo '<button class="delete" onclick="deleteImage(event)" id=' . $id . ' value="Delete">&#10005; Delete Image &#8595</button>';
-    } else {
+      echo '<div class="gallery_img">';
+      if ($delete_img->fetch(PDO::FETCH_ASSOC)) {
+        echo '<button class="delete" onclick="deleteImage(event)" id=' . $id . ' value="Delete">&#10005; Delete Image &#8595</button>';
+      } else {
+        echo '<span class="no_delete"></span>';
+      }
+    }else{
       echo '<span class="no_delete"></span>';
     }
 
