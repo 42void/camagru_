@@ -20,18 +20,18 @@ if ($user->is_logged_in()) {
   <header>
     <h1 class='title'>Gallery</h1>
   </header>
-  <?php if($user->is_logged_in()) { ?>
+  <?php if ($user->is_logged_in()) { ?>
 
     <nav>
       <a class='btn' href="home.php">Back to home</a>
       <a class='btn' href="logout.php">Logout</a>
     </nav>
 
-  <?php }else{ ?>
+  <?php } else { ?>
     <nav>
       <a class='btn' href="index.php">Log in</a>
     </nav>
-  <?php }?>
+  <?php } ?>
 
   <?php
   $stmt = $user->runQuery('SELECT count(distinct pictureID) FROM pictures');
@@ -83,14 +83,15 @@ if ($user->is_logged_in()) {
       $delete_img->bindparam(":picture_id", $pictureID);
       $delete_img->bindparam(":user_id", $userID);
       $delete_img->execute();
-
+      
       echo '<div class="gallery_img">';
       if ($delete_img->fetch(PDO::FETCH_ASSOC)) {
         echo '<button class="delete" onclick="deleteImage(event)" id=' . $id . ' value="Delete">&#10005; Delete Image &#8595</button>';
       } else {
         echo '<span class="no_delete"></span>';
       }
-    }else{
+    } else {
+      echo '<div class="gallery_img">';
       echo '<span class="no_delete"></span>';
     }
 
@@ -112,12 +113,12 @@ if ($user->is_logged_in()) {
               <textarea class="writeComment" id="comment_' . $id . '" placeholder="Write your comment here....."></textarea>
               <button class="sendCommentBtn" onclick="addComment(event)" id=' . $id . ' value="Post Comment">Send comment</button>
               ';
-      }
-      echo    '
+    }
+    echo    '
                 </div>
               ';
-      }
-      echo '</div>';
+  }
+  echo '</div>';
 
   if ($numberOfPages > 0)
     echo '<p align="center" class="paginationContainer">Page : ';

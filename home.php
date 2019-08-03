@@ -124,25 +124,25 @@ if (!$user->is_logged_in()) {
           prev = this;
         }
         if (this.value == "cat1") {
-          <?php echo json_encode(file_exists('./upload/gerard.png')); ?> && true ? document.getElementById('b').disabled = false : '';
+          <?php echo file_exists('./upload/gerard.png'); ?> && true ? document.getElementById('b').disabled = false : '';
           document.getElementById("filter").src = "./cat_filters/cat1.png"
           document.getElementById("filter").style.visibility = "visible";
           document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat1.png" : '';
           document.getElementById("filter2") ? document.getElementById("filter2").style.visibility = "visible" : '';
         } else if (this.value == "cat2") {
-          <?php echo json_encode(file_exists('./upload/gerard.png')); ?> && true ? document.getElementById('b').disabled = false : '';
+          <?php echo file_exists('./upload/gerard.png'); ?> && true ? document.getElementById('b').disabled = false : '';
           document.getElementById("filter").src = "./cat_filters/cat2.png"
           document.getElementById("filter").style.visibility = "visible";
           document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat2.png" : '';
           document.getElementById("filter2") ? document.getElementById("filter2").style.visibility = "visible" : '';
         } else if (this.value == "cat3") {
-          <?php echo json_encode(file_exists('./upload/gerard.png')); ?> && true ? document.getElementById('b').disabled = false : '';
+          <?php echo file_exists('./upload/gerard.png'); ?> && true ? document.getElementById('b').disabled = false : '';
           document.getElementById("filter").src = "./cat_filters/cat3.png"
           document.getElementById("filter").style.visibility = "visible";
           document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat3.png" : '';
           document.getElementById("filter2") ? document.getElementById("filter2").style.visibility = "visible" : '';
         } else if (this.value == "cat4") {
-          <?php echo json_encode(file_exists('./upload/gerard.png')); ?> && true ? document.getElementById('b').disabled = false : '';
+          <?php echo file_exists('./upload/gerard.png'); ?> && true ? document.getElementById('b').disabled = false : '';
           document.getElementById("filter").src = "./cat_filters/cat4.png"
           document.getElementById("filter").style.visibility = "visible";
           document.getElementById("filter2") ? document.getElementById("filter2").src = "./cat_filters/cat4.png" : '';
