@@ -20,14 +20,14 @@ if ($user->is_logged_in()) {
   <header>
     <h1 class='title'>Gallery</h1>
   </header>
-  <?php if ($user->is_logged_in()) { ?>
+  <?php if($user->is_logged_in()) { ?>
 
     <nav>
       <a class='btn' href="home.php">Back to home</a>
       <a class='btn' href="logout.php">Logout</a>
     </nav>
 
-  <?php } else { ?>
+  <?php }else{ ?>
     <nav>
       <a class='btn' href="index.php">Log in</a>
     </nav>
